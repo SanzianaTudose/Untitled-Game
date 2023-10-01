@@ -1,14 +1,17 @@
 {
-	"configurations": [
-		{
-			"name": "UntitledGameEditor Editor Win64 Development (UntitledGame)",
-			"intelliSenseMode": "msvc-x64",
-			"compileCommands": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\.vscode\\compileCommands_UntitledGame.json"
-		},
-		{
-			"name": "Win32",
-			"intelliSenseMode": "msvc-x64",
-			"compileCommands": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\.vscode\\compileCommands_Default.json"
-		}
-	]
+    "configurations": [
+        {
+            "name": "UntitledGameEditor Editor Win64 Development (UntitledGame)",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\.vscode\\compileCommands_UntitledGame.json",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe"
+        },
+        {
+            "name": "Win32",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\.vscode\\compileCommands_Default.json",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe"
+        }
+    ],
+    "version": 4
 }
