@@ -1,11 +1,17 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "UntitledGameGameMode.h"
-#include "UntitledGamePawn.h"
+#include "PlayerCharacter.h"
+#include "PlayerCharacterController.h"
+#include "UObject/ConstructorHelpers.h"
 
 AUntitledGameGameMode::AUntitledGameGameMode()
 {
-	// set default pawn class to our character class
-	DefaultPawnClass = AUntitledGamePawn::StaticClass();
-}
+	// Use custom PlayerController class
+	PlayerControllerClass = APlayerCharacterController::StaticClass();
 
+	// Set default pawn class to custom Blueprinted character
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/BP_PlayerCharacter"));
+	if (PlayerPawnBPClass.Class != nullptr)
+		DefaultPawnClass = PlayerPawnBPClass.Class;
+}
