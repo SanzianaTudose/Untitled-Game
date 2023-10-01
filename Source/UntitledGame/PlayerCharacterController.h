@@ -12,12 +12,21 @@ class UNTITLEDGAME_API APlayerCharacterController : public APlayerController
 {
 	GENERATED_BODY()
 
+public:
+	// Static names for axis bindings
+	static const FName MoveForwardBinding;
+	static const FName MoveRightBinding;
+
 protected:
 	// Begin PlayerController interface
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
 	// End PlayerController interface
 
-	// TODO: Add input and movement functionality
-	
+	void MovePlayer(float DeltaTime);
+
+private:
+	virtual void BeginPlay() override;
+
+	APawn* PlayerPawn;
 };
