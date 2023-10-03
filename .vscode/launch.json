@@ -5,124 +5,124 @@
 			"name": "UntitledGame (Debug)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGame Win64 Debug Build",
-			"program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"program": "N:\\unreal projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Debug.exe",
 			"args": [
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGame (DebugGame)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGame Win64 DebugGame Build",
-			"program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"program": "N:\\unreal projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
 			"args": [
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGame (Development)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGame Win64 Development Build",
-			"program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\Binaries\\Win64\\UE4.exe",
+			"program": "N:\\unreal projects\\Untitled-Game\\Binaries\\Win64\\UE4.exe",
 			"args": [
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGame (Shipping)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGame Win64 Shipping Build",
-			"program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"program": "N:\\unreal projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
 			"args": [
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGame (Test)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGame Win64 Test Build",
-			"program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"program": "N:\\unreal projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Test.exe",
 			"args": [
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGameEditor (Debug)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGameEditor Win64 Debug Build",
-			"program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"program": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
 			"args": [
-				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\UntitledGame.uproject"
+				"N:\\unreal projects\\Untitled-Game\\UntitledGame.uproject"
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGameEditor (DebugGame)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGameEditor Win64 DebugGame Build",
-			"program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+			"program": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
 			"args": [
-				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\UntitledGame.uproject"
+				"N:\\unreal projects\\Untitled-Game\\UntitledGame.uproject"
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "UntitledGameEditor (Development)",
 			"request": "launch",
 			"preLaunchTask": "UntitledGameEditor Win64 Development Build",
-			"program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"program": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor.exe",
 			"args": [
-				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\UntitledGame.uproject"
+				"N:\\unreal projects\\Untitled-Game\\UntitledGame.uproject"
 			],
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"type": "cppvsdbg",
-			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+			"visualizerFile": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "Generate Project Files",
 			"type": "clr",
 			"request": "launch",
-			"program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"program": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
 			"console": "externalTerminal",
 			"args": [
 				"-projectfiles",
 				"-vscode",
-				"-project=D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\UntitledGame\\UntitledGame.uproject",
+				"-project=N:\\unreal projects\\Untitled-Game\\UntitledGame.uproject",
 				"-game",
 				"-engine"
 			],
 			"internalConsoleOptions": "openOnSessionStart",
-			"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			"cwd": "N:\\unrealProjects2\\Versions\\UE_4.27"
 		}
 	]
 }
