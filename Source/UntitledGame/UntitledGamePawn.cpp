@@ -8,15 +8,16 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "GameFramework/PlayerController.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
+#include "Engine/World.h"
+#include "Engine/EngineTypes.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
 
 const FName AUntitledGamePawn::MoveForwardBinding("MoveForward");
 const FName AUntitledGamePawn::MoveRightBinding("MoveRight");
-const FName AUntitledGamePawn::FireForwardBinding("FireForward");
-const FName AUntitledGamePawn::FireRightBinding("FireRight");
 
 AUntitledGamePawn::AUntitledGamePawn()
 {	
@@ -59,8 +60,7 @@ void AUntitledGamePawn::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	// set up gameplay key bindings
 	PlayerInputComponent->BindAxis(MoveForwardBinding);
 	PlayerInputComponent->BindAxis(MoveRightBinding);
-	PlayerInputComponent->BindAxis(FireForwardBinding);
-	PlayerInputComponent->BindAxis(FireRightBinding);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AUntitledGamePawn::OnFire);
 }
 
 void AUntitledGamePawn::Tick(float DeltaSeconds)
@@ -90,45 +90,51 @@ void AUntitledGamePawn::Tick(float DeltaSeconds)
 		}
 	}
 	
-	// Create fire direction vector
-	const float FireForwardValue = GetInputAxisValue(FireForwardBinding);
-	const float FireRightValue = GetInputAxisValue(FireRightBinding);
-	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);
-
-	// Try and fire a shot
-	FireShot(FireDirection);
 }
 
-void AUntitledGamePawn::FireShot(FVector FireDirection)
+void AUntitledGamePawn::OnFire()
 {
 	// If it's ok to fire again
 	if (bCanFire == true)
 	{
-		// If we are pressing fire stick in a direction
-		if (FireDirection.SizeSquared() > 0.0f)
+		FVector FireDirection;
+		// get mouse direction
+		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+		if (PlayerController)
 		{
-			const FRotator FireRotation = FireDirection.Rotation();
-			// Spawn projectile at an offset from this pawn
-			const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-			UWorld* const World = GetWorld();
-			if (World != nullptr)
+			FHitResult HitResult;
+			ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
+			bool bHit = PlayerController->GetHitResultUnderCursorByChannel(TraceType, true, HitResult);
+			
+			if (bHit)
 			{
-				// spawn the projectile
-				World->SpawnActor<AUntitledGameProjectile>(SpawnLocation, FireRotation);
+				// Process the hit result, e.g.,:
+				FVector HitLocation = HitResult.Location;
+				HitLocation.Z = GetActorLocation().Z;
+				FireDirection = HitLocation - GetActorLocation();
 			}
-
-			bCanFire = false;
-			World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AUntitledGamePawn::ShotTimerExpired, FireRate);
-
-			// try and play the sound if specified
-			if (FireSound != nullptr)
-			{
-				UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-			}
-
-			bCanFire = false;
 		}
+		const FRotator FireRotation = FireDirection.Rotation();
+		// Spawn projectile at an offset from this pawn
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+
+		UWorld* const World = GetWorld();
+		if (World != nullptr)
+		{
+			// spawn the projectile
+			World->SpawnActor<AUntitledGameProjectile>(SpawnLocation, FireRotation);
+		}
+
+		bCanFire = false;
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AUntitledGamePawn::ShotTimerExpired, FireRate);
+
+		// try and play the sound if specified
+		if (FireSound != nullptr)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+		}
+
+		bCanFire = false;
 	}
 }
 
