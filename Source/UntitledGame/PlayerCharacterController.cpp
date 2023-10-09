@@ -16,6 +16,7 @@
 #include "Engine/EngineTypes.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
+#include "WeaponCore.h"
 
 const FName APlayerCharacterController::MoveForwardBinding("MoveForward");
 const FName APlayerCharacterController::MoveRightBinding("MoveRight");
@@ -29,6 +30,7 @@ void APlayerCharacterController::BeginPlay()
     GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
+	PlayerLevel = 1;
 
 }
 
