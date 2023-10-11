@@ -6,12 +6,12 @@
 #include "AIController.h"
 #include "EnemyAIController.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class UNTITLEDGAME_API AEnemyAIController : public AAIController
 {
 	GENERATED_BODY()
-	
+
+protected:
+	virtual void BeginPlay() override;
 };
