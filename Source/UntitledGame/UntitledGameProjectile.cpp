@@ -7,10 +7,10 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Engine/StaticMesh.h"
 
-AUntitledGameProjectile::AUntitledGameProjectile() 
+AUntitledGameProjectile::AUntitledGameProjectile()
 {
-	// Static reference to the mesh to use for the projectile
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
+	// Static reference to the mesh to use for the projectileStaticMesh
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/Art/Meshes/TwinStickProjectile.TwinStickProjectile"));
 
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));

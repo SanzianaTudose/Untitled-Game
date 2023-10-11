@@ -37,6 +37,8 @@ protected:
 	// End PlayerController interface
 
 	void MovePlayer(float DeltaTime);
+	void RotateToCursor();
+
 	void OnFire();
 	void ShotTimerExpired();
 
