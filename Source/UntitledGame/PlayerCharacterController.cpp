@@ -22,11 +22,11 @@ const FName APlayerCharacterController::MoveRightBinding("MoveRight");
 
 void APlayerCharacterController::BeginPlay()
 {
-    PlayerPawn = GetPawn();
-    if (PlayerPawn == nullptr)
-        UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));
-    	
-    GunOffset = FVector(90.f, 0.f, 0.f);
+	PlayerPawn = GetPawn();
+	if (PlayerPawn == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));
+
+	GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
 
@@ -34,31 +34,50 @@ void APlayerCharacterController::BeginPlay()
 
 void APlayerCharacterController::PlayerTick(float DeltaTime)
 {
-    Super::PlayerTick(DeltaTime);
+	Super::PlayerTick(DeltaTime);
 
-    MovePlayer(DeltaTime);
+	MovePlayer(DeltaTime);
+	RotateToCursor();
 }
 
 void APlayerCharacterController::SetupInputComponent()
 {
-    Super::SetupInputComponent();
+	Super::SetupInputComponent();
 
-    // Set up gameplay key bindings
-    InputComponent->BindAxis(MoveForwardBinding);
-    InputComponent->BindAxis(MoveRightBinding);
+	// Set up gameplay key bindings
+	InputComponent->BindAxis(MoveForwardBinding);
+	InputComponent->BindAxis(MoveRightBinding);
 	InputComponent->BindAction("Fire", IE_Pressed, this, &APlayerCharacterController::OnFire);
 }
 
 void APlayerCharacterController::MovePlayer(float DeltaTime)
 {
-    // Find movement direction
-    const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
-    const float RightValue = GetInputAxisValue(MoveRightBinding);
+	// Find movement direction
+	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
+	const float RightValue = GetInputAxisValue(MoveRightBinding);
 
-    // Clamp max size so that (X=1, Y=1) doesn't cause faster movement in diagonal directions
-    const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
+	// Clamp max size so that (X=1, Y=1) doesn't cause faster movement in diagonal directions
+	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
 
-    PlayerPawn->AddMovementInput(MoveDirection);
+	PlayerPawn->AddMovementInput(MoveDirection);
+}
+
+void APlayerCharacterController::RotateToCursor()
+{
+	FVector CurLocation = PlayerPawn->GetActorLocation();
+
+	// Get cursor location
+	FHitResult HitResult;
+	GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType(ECC_Visibility), true, HitResult);
+	FVector CursorLocation = HitResult.Location;
+
+	FRotator CurRot = PlayerPawn->GetActorRotation();
+
+	// Determine new rotator Yaw based on difference
+	float NewYaw = (CursorLocation - CurLocation).Rotation().Yaw;;
+	FRotator NewRot = FRotator(CurRot.Pitch, NewYaw, CurRot.Roll);
+
+	SetControlRotation(NewRot);
 }
 
 void APlayerCharacterController::OnFire()
@@ -74,7 +93,7 @@ void APlayerCharacterController::OnFire()
 			FHitResult HitResult;
 			ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
 			bool bHit = PlayerController->GetHitResultUnderCursorByChannel(TraceType, true, HitResult);
-			
+
 			if (bHit)
 			{
 				// Process the hit result, e.g.,:
