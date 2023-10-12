@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "WeaponCore.h"
-#include "playerCharacterController.h"
+#include "TimerManager.h"
+#include "Engine/World.h"
 #include <iostream>
 #include <random>
 
@@ -15,11 +16,13 @@ AWeaponCore::AWeaponCore()
 void AWeaponCore::BeginPlay()
 {
 	Super::BeginPlay();
-	APlayerCharacterController* PlayerController = Cast<APlayerCharacterController>(GetWorld()->GetFirstPlayerController());
-	PlayerLevel =  PlayerController->PlayerLevel;
+	AbilityIndex = 0;
+	AbilitiesClasses = TArray<TSubclassOf<AUntitledGameProjectile>>();
+	AbilitiesClasses.Add(AUntitledGameProjectile::StaticClass());
+	bCanFire = true;
 }
 
-void GenerateStats()
+void AWeaponCore::GenerateStats(int level)
 {
 	int MaxAbilities = 1;
 	std::random_device rd;
@@ -30,14 +33,35 @@ void GenerateStats()
 	float ReloadTime = dis2(gen);
 }
 
-void AddAbility( )
+void AWeaponCore::AddAbility(AUntitledGameProjectile* Ability)
 {
 
 }
 
-void RemoveAbility()
+void AWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability)
 {
 
 }
 
+void AWeaponCore::ActivateAbitlity( FVector SpawnLocation, FRotator SpawnRotation)
+{
+	if (!bCanFire) return;
+	UWorld* World = GetWorld();
+	AUntitledGameProjectile* NewProjectile = GetWorld()->SpawnActor<AUntitledGameProjectile>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
+	bCanFire = false;
+	FTimerHandle TimerHandle_ShotTimerExpired;
+	if (AbilityIndex == AbilitiesClasses.Num() - 1)
+	{
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AWeaponCore::ShotTimerExpired, ReloadTime);
+	}else{
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AWeaponCore::ShotTimerExpired, FireRate);
+	}
+	AbilityIndex++;
+	AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
+}
+
+void AWeaponCore::ShotTimerExpired()
+{
+	bCanFire = true;
+}
 

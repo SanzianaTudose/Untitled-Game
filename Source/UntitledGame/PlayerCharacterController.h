@@ -18,10 +18,6 @@ public:
 	/** Offset from the player location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
 	FVector GunOffset;
-	
-	/* How fast the weapon will fire */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	float FireRate;
 
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 	float PlayerLevel;

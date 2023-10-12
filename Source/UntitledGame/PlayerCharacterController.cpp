@@ -28,10 +28,10 @@ void APlayerCharacterController::BeginPlay()
         UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));
     	
     GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 0.1f;
 	bCanFire = true;
 	PlayerLevel = 1;
-
+	WeaponCore = NewObject<AWeaponCore>();
+	WeaponCore->GenerateStats(PlayerLevel);
 }
 
 void APlayerCharacterController::PlayerTick(float DeltaTime)
@@ -66,7 +66,7 @@ void APlayerCharacterController::MovePlayer(float DeltaTime)
 void APlayerCharacterController::OnFire()
 {
 	// If it's ok to fire again
-	if (bCanFire == true)
+	if (WeaponCore->bCanFire == true)
 	{
 		FVector FireDirection;
 		// get mouse direction
@@ -94,23 +94,14 @@ void APlayerCharacterController::OnFire()
 		if (World != nullptr)
 		{
 			// spawn the projectile
-			World->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
+			WeaponCore->ActivateAbitlity(ProjectileSpawnLocation, FireRotation);
+			// World->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
 		}
-
-		bCanFire = false;
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerCharacterController::ShotTimerExpired, FireRate);
 
 		// try and play the sound if specified
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, PlayerPawn->GetActorLocation());
 		}
-
-		bCanFire = false;
 	}
-}
-
-void APlayerCharacterController::ShotTimerExpired()
-{
-	bCanFire = true;
 }

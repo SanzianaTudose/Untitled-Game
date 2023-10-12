@@ -1,67 +1,77 @@
 [
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.Build.cs",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    },
-    {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
-        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
-    }
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.Build.cs",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\WeaponCore.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\WeaponCore.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	}
 ]
