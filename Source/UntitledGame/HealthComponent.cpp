@@ -27,7 +27,15 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
 {
+	float DamageToApply = FMath::Min(Health, Damage);
+	Health -= DamageToApply;
 
+	UE_LOG(LogTemp, Warning, TEXT("%s health : % f"), *GetOwner()->GetName(), Health);
+
+	if (Health <= 0.f)
+	{
+		// TODO: Handle death
+	}
 }
 
 

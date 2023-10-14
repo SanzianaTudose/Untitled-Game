@@ -111,7 +111,8 @@ void APlayerCharacterController::OnFire()
 		if (World != nullptr)
 		{
 			// spawn the projectile
-			World->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
+			auto Projectile = World->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
+			Projectile->SetOwner(this);
 		}
 
 		bCanFire = false;
