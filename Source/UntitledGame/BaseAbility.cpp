@@ -35,8 +35,11 @@ void ABaseAbility::spawnObjects()
 		if (World != nullptr)
 		{
 			// spawn the projectile
+			//this does not work
+			/* AActor* actor = World->SpawnActor<abilityClass>(GetActorLocation(), GetActorRotation()); */
+			//this works
 			AActor* actor = World->SpawnActor(abilityClass);
-			actor->SetActorRotation(GetActorRotation());
+			actor->SetActorRotation();//rotation does not update due to ProjectileMovementComponent
 			actor->SetActorLocation(GetActorLocation());
 			UAbilityObjectComponent* obj = actor->FindComponentByClass<UAbilityObjectComponent>();
 			if(obj)
