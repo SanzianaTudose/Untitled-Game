@@ -28,14 +28,6 @@ void UAbilityObjectComponent::BeginPlay()
 		mainObj->OnComponentBeginOverlap.AddDynamic(this, &UAbilityObjectComponent::OnEnemyHit);
 		UE_LOG(LogTemp, Warning, TEXT("Found component!"));
 
-		// Use a ProjectileMovementComponent to govern this projectile's movement
-		UProjectileMovementComponent* ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
-		ProjectileMovement->InitialSpeed = 100.f;
-		ProjectileMovement->MaxSpeed = 3000.f;
-		ProjectileMovement->bRotationFollowsVelocity = true;
-		ProjectileMovement->bShouldBounce = false;
-		ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
-
 	}else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Could not find component!"));
@@ -60,6 +52,7 @@ void UAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	if(distance > range)
 	{
 		//delete object
+		UE_LOG(LogTemp, Display, TEXT("Object out of range: %f / %f"), distance, range);
 		GetOwner()->Destroy();
 	}
 	// ...
@@ -78,4 +71,6 @@ void UAbilityObjectComponent::setData(float d, bool doh, float r)
 	damage = d;
 	destroyOnHit = doh;
 	range = r;
+	UE_LOG(LogTemp, Display, TEXT("Data set!"));
+
 }

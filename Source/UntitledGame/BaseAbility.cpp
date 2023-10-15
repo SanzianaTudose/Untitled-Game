@@ -36,9 +36,11 @@ void ABaseAbility::spawnObjects()
 		{
 			// spawn the projectile
 			AActor* actor = World->SpawnActor(abilityClass);
-			UAbilityObjectComponent* obj = (UAbilityObjectComponent*) actor;
-			obj->setData(damage, destroyOnHit, range);
-			// obj->GetOwner()->SetActorLocation(initialPosition);
+			UAbilityObjectComponent* obj = actor->FindComponentByClass<UAbilityObjectComponent>();
+			if(obj)
+			{
+				obj->setData(damage, destroyOnHit, range);
+			}
 			UE_LOG(LogTemp, Warning, TEXT("Object Spawned"));
 		}
 	}

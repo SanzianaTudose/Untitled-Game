@@ -29,10 +29,10 @@ public:
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 
-	float damage = 10;
+	float damage;
 	//will determine if the ability object will be able to hit more than one enemy
 	bool destroyOnHit = true;
-	float range = 10;
+	float range;
 	FVector initialPosition;
 
 	void setData(/*Element, Effect[]*/ float d, bool doh, float r);
