@@ -19,7 +19,7 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
+	UStaticMeshComponent* mainObj; // the main mesh representing the ability object
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -34,6 +34,8 @@ public:
 	bool destroyOnHit = true;
 	float range = 10;
 	FVector initialPosition;
+
+	void setData(/*Element, Effect[]*/ float d, bool doh, float r);
 
 	UFUNCTION()
 	void OnEnemyHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

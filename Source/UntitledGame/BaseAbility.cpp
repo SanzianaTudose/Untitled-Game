@@ -2,7 +2,7 @@
 
 
 #include "BaseAbility.h"
-
+#include "AbilityObjectComponent.h"
 // Sets default values
 ABaseAbility::ABaseAbility()
 {
@@ -35,7 +35,10 @@ void ABaseAbility::spawnObjects()
 		if (World != nullptr)
 		{
 			// spawn the projectile
-			World->SpawnActor(abilityClass);
+			AActor* actor = World->SpawnActor(abilityClass);
+			UAbilityObjectComponent* obj = (UAbilityObjectComponent*) actor;
+			obj->setData(damage, destroyOnHit, range);
+			// obj->GetOwner()->SetActorLocation(initialPosition);
 			UE_LOG(LogTemp, Warning, TEXT("Object Spawned"));
 		}
 	}

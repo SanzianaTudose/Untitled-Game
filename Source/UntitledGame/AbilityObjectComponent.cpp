@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "GameFramework/ProjectileMovementComponent.h"
 #include "AbilityObjectComponent.h"
 
 // Sets default values for this component's properties
@@ -24,9 +24,17 @@ void UAbilityObjectComponent::BeginPlay()
 
 	if(StaticMeshComps.Num() > 0)
 	{
-		UStaticMeshComponent* Comp = StaticMeshComps[0];
-		Comp->OnComponentBeginOverlap.AddDynamic(this, &UAbilityObjectComponent::OnEnemyHit);
+		mainObj = StaticMeshComps[0];
+		mainObj->OnComponentBeginOverlap.AddDynamic(this, &UAbilityObjectComponent::OnEnemyHit);
 		UE_LOG(LogTemp, Warning, TEXT("Found component!"));
+
+		// Use a ProjectileMovementComponent to govern this projectile's movement
+		UProjectileMovementComponent* ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
+		ProjectileMovement->InitialSpeed = 100.f;
+		ProjectileMovement->MaxSpeed = 3000.f;
+		ProjectileMovement->bRotationFollowsVelocity = true;
+		ProjectileMovement->bShouldBounce = false;
+		ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
 	}else
 	{
@@ -62,4 +70,12 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	UE_LOG(LogTemp, Display, TEXT("Collision detected"));
 }
 
-
+void UAbilityObjectComponent::setData(float d, bool doh, float r)
+{
+	//set all the needed variables
+	//element
+	//effect[]
+	damage = d;
+	destroyOnHit = doh;
+	range = r;
+}
