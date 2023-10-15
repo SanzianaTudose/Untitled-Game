@@ -36,6 +36,8 @@ void ABaseAbility::spawnObjects()
 		{
 			// spawn the projectile
 			AActor* actor = World->SpawnActor(abilityClass);
+			actor->SetActorRotation(GetActorRotation());
+			actor->SetActorLocation(GetActorLocation());
 			UAbilityObjectComponent* obj = actor->FindComponentByClass<UAbilityObjectComponent>();
 			if(obj)
 			{
