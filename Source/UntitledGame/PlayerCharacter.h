@@ -14,9 +14,6 @@ class UNTITLEDGAME_API APlayerCharacter : public ACharacter
 public:
 	APlayerCharacter();
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	/** Returns TopDownCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const
 	{
@@ -28,7 +25,7 @@ public:
 		return CameraBoom;
 	}
 
-	// TODO: Handle Player death
+	void HandleDeath();
 
 private:
 	/** Top down camera */

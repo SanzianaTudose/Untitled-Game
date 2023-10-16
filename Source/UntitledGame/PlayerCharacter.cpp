@@ -45,10 +45,9 @@ APlayerCharacter::APlayerCharacter()
 	PrimaryActorTick.bStartWithTickEnabled = true;
 }
 
-// Called every frame
-void APlayerCharacter::Tick(float DeltaTime)
+void APlayerCharacter::HandleDeath()
 {
-	Super::Tick(DeltaTime);
+	// TODO: Test if this works once Enemies can deal damage
+	// Implement this based on what we want (e.g. Game Over screen / Respawn)
+	// UE_LOG(LogTemp, Warning, TEXT("Player died!"));
 }
-
-
