@@ -25,7 +25,7 @@ private:
 	class AUntitledGameGameMode* UntitledGameGameMode;
 
 	UPROPERTY(EditAnywhere)
-	float MaxHealth = 100.f;
+	float MaxHealth = 200.f;
 	float Health = 0.f; // Holds current Health value
 
 	UFUNCTION()
