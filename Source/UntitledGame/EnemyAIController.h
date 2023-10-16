@@ -18,6 +18,8 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	void Attack(); // For now, just shoots a basic projectile
+
 	APawn* PlayerPawn;
 
 private:

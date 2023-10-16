@@ -29,3 +29,8 @@ void AEnemyAIController::Tick(float DeltaSeconds)
         StopMovement();
     }
 }
+
+void AEnemyAIController::Attack()
+{
+    // TODO: Implement this so it shoots a projectile waiting some time in between shots
+}
