@@ -5,7 +5,7 @@
             "name": "UntitledGame (Debug)",
             "request": "launch",
             "preLaunchTask": "UntitledGame Win64 Debug Build",
-            "program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+            "program": "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Debug.exe",
             "args": [],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -17,7 +17,7 @@
             "name": "UntitledGame (DebugGame)",
             "request": "launch",
             "preLaunchTask": "UntitledGame Win64 DebugGame Build",
-            "program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+            "program": "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
             "args": [],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -29,7 +29,7 @@
             "name": "UntitledGame (Development)",
             "request": "launch",
             "preLaunchTask": "UntitledGame Win64 Development Build",
-            "program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4.exe",
+            "program": "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4.exe",
             "args": [],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -41,7 +41,7 @@
             "name": "UntitledGame (Shipping)",
             "request": "launch",
             "preLaunchTask": "UntitledGame Win64 Shipping Build",
-            "program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+            "program": "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
             "args": [],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -53,7 +53,7 @@
             "name": "UntitledGame (Test)",
             "request": "launch",
             "preLaunchTask": "UntitledGame Win64 Test Build",
-            "program": "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Test.exe",
+            "program": "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\Binaries\\Win64\\UE4-Win64-Test.exe",
             "args": [],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -67,7 +67,7 @@
             "preLaunchTask": "UntitledGameEditor Win64 Debug Build",
             "program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
             "args": [
-                "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject"
+                "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject"
             ],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -81,7 +81,7 @@
             "preLaunchTask": "UntitledGameEditor Win64 DebugGame Build",
             "program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
             "args": [
-                "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject"
+                "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject"
             ],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -95,7 +95,7 @@
             "preLaunchTask": "UntitledGameEditor Win64 Development Build",
             "program": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor.exe",
             "args": [
-                "D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject"
+                "D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject"
             ],
             "cwd": "C:\\Program Files\\Epic Games\\UE_4.27",
             "stopAtEntry": false,
@@ -112,7 +112,7 @@
             "args": [
                 "-projectfiles",
                 "-vscode",
-                "-project=D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+                "-project=D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
                 "-game",
                 "-engine"
             ],

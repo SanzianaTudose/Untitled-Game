@@ -1,87 +1,87 @@
 [
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyAIController.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyAIController.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyCharacter.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyCharacter.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.Build.cs",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\HealthComponent.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\HealthComponent.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacter.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\PlayerCharacterController.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGamePawn.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.Build.cs",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "D:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyCharacter.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyCharacter.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameGameMode.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyAIController.cpp",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     },
     {
-        "file": "d:\\\\My Stuff\\\\Work\\\\TUe\\\\Game Dev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\EnemyAIController.h",
-        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
+        "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_UntitledGame\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     }
 ]

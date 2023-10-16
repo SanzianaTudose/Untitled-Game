@@ -13,6 +13,8 @@ class AUntitledGameGameMode : public AGameModeBase
 
 public:
 	AUntitledGameGameMode();
+
+	void OnActorDeath(AActor* DeadActor);
 };
 
 

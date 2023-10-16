@@ -14,9 +14,8 @@ class UNTITLEDGAME_API AEnemyCharacter : public ACharacter
 public:
 	AEnemyCharacter();
 
+	void HandleDeath();
+
 protected:
 	virtual void BeginPlay() override;
-
-public:
-	virtual void Tick(float DeltaTime) override;
 };

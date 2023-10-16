@@ -15,18 +15,15 @@ AEnemyCharacter::AEnemyCharacter()
 	bUseControllerRotationRoll = false;
 
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 void AEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
-void AEnemyCharacter::Tick(float DeltaTime)
+void AEnemyCharacter::HandleDeath()
 {
-	Super::Tick(DeltaTime);
-
+	Destroy();
 }
 
