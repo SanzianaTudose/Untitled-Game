@@ -2,12 +2,13 @@
 
 
 #include "HealthComponent.h"
+#include "UntitledGameGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 UHealthComponent::UHealthComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
 }
-
 
 void UHealthComponent::BeginPlay()
 {
@@ -17,8 +18,11 @@ void UHealthComponent::BeginPlay()
 
 	// Bind callback function (UHealthComponent::DamageTaken) to OnTakeAnyDamage delegate
 	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::DamageTaken);
-}
 
+	UntitledGameGameMode = Cast<AUntitledGameGameMode>(UGameplayStatics::GetGameMode(this));
+	if (UntitledGameGameMode == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("HealthComponent: GameMode not found."));
+}
 
 void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
@@ -32,10 +36,8 @@ void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDa
 
 	UE_LOG(LogTemp, Warning, TEXT("%s health : % f"), *GetOwner()->GetName(), Health);
 
-	if (Health <= 0.f)
-	{
-		// TODO: Handle death
-	}
+	if (UntitledGameGameMode && Health <= 0.f)
+		UntitledGameGameMode->OnActorDeath(DamagedActor);
 }
 
 

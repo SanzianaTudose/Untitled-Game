@@ -4,6 +4,7 @@
 #include "PlayerCharacter.h"
 #include "PlayerCharacterController.h"
 #include "UObject/ConstructorHelpers.h"
+#include "EnemyCharacter.h"
 
 AUntitledGameGameMode::AUntitledGameGameMode()
 {
@@ -14,4 +15,12 @@ AUntitledGameGameMode::AUntitledGameGameMode()
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/BP_PlayerCharacter"));
 	if (PlayerPawnBPClass.Class != nullptr)
 		DefaultPawnClass = PlayerPawnBPClass.Class;
+}
+
+void AUntitledGameGameMode::OnActorDeath(AActor* DeadActor)
+{
+	// TODO: Handle Player death
+
+	if (AEnemyCharacter* KilledEnemy = Cast<AEnemyCharacter>(DeadActor))
+		KilledEnemy->HandleDeath();
 }

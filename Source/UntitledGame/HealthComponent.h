@@ -22,6 +22,8 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	class AUntitledGameGameMode* UntitledGameGameMode;
+
 	UPROPERTY(EditAnywhere)
 	float MaxHealth = 100.f;
 	float Health = 0.f; // Holds current Health value
