@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "WeaponCore.h"
 #include "PlayerCharacter.generated.h"
+DECLARE_LOG_CATEGORY_EXTERN(Player, Log, All);
 
 UCLASS()
 class UNTITLEDGAME_API APlayerCharacter : public ACharacter
@@ -35,6 +36,7 @@ public:
 	class UShootingController* ShootingController;
 
 	void OnFire();
+	UFUNCTION(BlueprintCallable)
 	void PrintCoreStats();
 
 protected:
@@ -47,6 +49,4 @@ private:
 	/** Camera boom positioning the camera above the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
-
-
 };

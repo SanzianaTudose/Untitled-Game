@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "WeaponCore.h"
 #include "ShootingController.h"
+DEFINE_LOG_CATEGORY(Player);
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -53,6 +54,7 @@ void APlayerCharacter::BeginPlay()
 	Super::BeginPlay();
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
 	WeaponCore->GenerateStats(1);
+	PrintCoreStats();
 }
 // Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
@@ -65,5 +67,11 @@ void APlayerCharacter::OnFire()
 	ShootingController->OnFire();
 }
 
+void APlayerCharacter::PrintCoreStats()
+{
+	UE_LOG(Player, Warning, TEXT("MaxAbilities: %d\n"), WeaponCore->MaxAbilities);
+	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->FireRate);
+	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->ReloadTime);
+}
 
 
