@@ -44,13 +44,16 @@ APlayerCharacter::APlayerCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
 
-	// WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
-	// WeaponCore->GenerateStats(1);
-
 	ShootingController = CreateDefaultSubobject<UShootingController>(TEXT("ShootingController"));
 	ShootingController->OwningActor = this;
 }
 
+void APlayerCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	WeaponCore->GenerateStats(1);
+}
 // Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
