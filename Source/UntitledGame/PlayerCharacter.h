@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "WeaponCore.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -28,6 +29,13 @@ public:
 		return CameraBoom;
 	}
 
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	class UWeaponCore* WeaponCore;
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	class UShootingController* ShootingController;
+
+	void OnFire();
+	void PrintCoreStats();
 private:
 	/** Top down camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))

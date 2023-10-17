@@ -6,6 +6,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "WeaponCore.h"
+#include "ShootingController.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -41,14 +43,24 @@ APlayerCharacter::APlayerCharacter()
 	// TODO: Is this needed (?)
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
+
+	// WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	// WeaponCore->GenerateStats(1);
+
+	ShootingController = CreateDefaultSubobject<UShootingController>(TEXT("ShootingController"));
+	ShootingController->OwningActor = this;
 }
 
 // Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	// TODO: Handle movement or remove (?)
 }
+
+void APlayerCharacter::OnFire()
+{
+	ShootingController->OnFire();
+}
+
 
 

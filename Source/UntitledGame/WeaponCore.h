@@ -1,43 +1,43 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "Components/ActorComponent.h"
 #include "UntitledGameProjectile.h"
 #include "WeaponCore.generated.h"
 
-UCLASS()
-class UNTITLEDGAME_API AWeaponCore : public AActor
+
+UCLASS( ClassGroup=(WeaponSystem), meta=(BlueprintSpawnableComponent) )
+class UNTITLEDGAME_API UWeaponCore : public UActorComponent
 {
 	GENERATED_BODY()
-	
+
 public:	
-	// Sets default values for this actor's properties
-	AWeaponCore();
+	// Sets default values for this component's properties
+	UWeaponCore();
 
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite )
 	int MaxAbilities;
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
-	int AbilityIndex;
-
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite )
 	float FireRate;
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite )
 	float ReloadTime;
-
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
 	bool bCanFire;
 
-	void AWeaponCore::GenerateStats(int level);
-	void AWeaponCore::AddAbility(AUntitledGameProjectile* Ability);
-	void AWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability);
-	void AWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation);
-	void AWeaponCore::ShotTimerExpired();
+	UFUNCTION(BlueprintCallable)
+	void GenerateStats(int level);
+	void AddAbility(AUntitledGameProjectile* Ability);
+	void RemoveAbility(AUntitledGameProjectile* Ability);
+	void ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation);
+	void ShotTimerExpired();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
+private:
 	int PlayerLevel;
+	int AbilityIndex;
 	TArray<TSubclassOf<AUntitledGameProjectile>> AbilitiesClasses;
-
+protected:
+	// Called when the game starts
+	virtual void BeginPlay() override;
+	
 };

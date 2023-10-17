@@ -16,7 +16,7 @@
 #include "Engine/EngineTypes.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
-#include "WeaponCore.h"
+#include "PlayerCharacter.h"
 
 const FName APlayerCharacterController::MoveForwardBinding("MoveForward");
 const FName APlayerCharacterController::MoveRightBinding("MoveRight");
@@ -27,11 +27,7 @@ void APlayerCharacterController::BeginPlay()
     if (PlayerPawn == nullptr)
         UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));
     	
-    GunOffset = FVector(90.f, 0.f, 0.f);
-	bCanFire = true;
 	PlayerLevel = 1;
-	WeaponCore = NewObject<AWeaponCore>();
-	WeaponCore->GenerateStats(PlayerLevel);
 }
 
 void APlayerCharacterController::PlayerTick(float DeltaTime)
@@ -64,44 +60,16 @@ void APlayerCharacterController::MovePlayer(float DeltaTime)
 }
 
 void APlayerCharacterController::OnFire()
-{
-	// If it's ok to fire again
-	if (WeaponCore->bCanFire == true)
-	{
-		FVector FireDirection;
-		// get mouse direction
-		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-		if (PlayerController)
-		{
-			FHitResult HitResult;
-			ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
-			bool bHit = PlayerController->GetHitResultUnderCursorByChannel(TraceType, true, HitResult);
-			
-			if (bHit)
-			{
-				// Process the hit result, e.g.,:
-				FVector HitLocation = HitResult.Location;
-				HitLocation.Z = PlayerPawn->GetActorLocation().Z;
-				FireDirection = HitLocation - PlayerPawn->GetActorLocation();
-			}
-		}
-		const FRotator FireRotation = FireDirection.Rotation();
-		// Spawn projectile at an offset from this pawn
-		const FVector ProjectileSpawnLocation = PlayerPawn->GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-
-		UWorld* const World = GetWorld();
-		if (World != nullptr)
-		{
-			// spawn the projectile
-			WeaponCore->ActivateAbitlity(ProjectileSpawnLocation, FireRotation);
-			// World->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
-		}
-
-		// try and play the sound if specified
-		if (FireSound != nullptr)
-		{
-			UGameplayStatics::PlaySoundAtLocation(this, FireSound, PlayerPawn->GetActorLocation());
-		}
-	}
+{    
+	APawn* MyPawn = GetPawn();
+    if(MyPawn)
+    {
+        // Cast to your custom Pawn or Character class
+        APlayerCharacter* PlayerScript = Cast<APlayerCharacter>(MyPawn);
+        if(PlayerScript)
+        {
+            // Call a function on your character
+            PlayerScript->OnFire();
+        }
+    }
 }

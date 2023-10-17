@@ -20,6 +20,16 @@
 		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
 	},
 	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\ShootingController.cpp",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\ShootingController.h",
+		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
+	},
+	{
 		"file": "N:\\\\unreal projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGame.Build.cs",
 		"command": "H:\\programming\\VisualStudio\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe @\"N:\\unreal projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
 		"directory": "N:\\unrealProjects2\\Versions\\UE_4.27\\Engine\\Source"
