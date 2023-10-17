@@ -4,13 +4,13 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
-#include "GameFramework/ProjectileMovementComponent.h"
-#include "Engine/StaticMesh.h"
+#include "GameFramework/DamageType.h"
+#include "Kismet/GameplayStatics.h"
 
-AUntitledGameProjectile::AUntitledGameProjectile() 
+AUntitledGameProjectile::AUntitledGameProjectile()
 {
-	// Static reference to the mesh to use for the projectile
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
+	// Static reference to the mesh to use for the projectileStaticMesh
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/Art/Meshes/TwinStickProjectile.TwinStickProjectile"));
 
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
@@ -40,6 +40,19 @@ void AUntitledGameProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherA
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
+
+	auto MyOwner = GetOwner();
+	if (MyOwner == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AUntitledGameProjectile: Owner is null."));
+		return;
+	}
+
+	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
+	auto DamageTypeClass = UDamageType::StaticClass();
+	// Make sure not to damage self or projectile owner
+	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
 
 	Destroy();
 }

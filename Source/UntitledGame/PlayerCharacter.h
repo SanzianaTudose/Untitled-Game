@@ -16,9 +16,6 @@ class UNTITLEDGAME_API APlayerCharacter : public ACharacter
 public:
 	APlayerCharacter();
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	/** Returns TopDownCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const
 	{
@@ -41,6 +38,8 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+	void HandleDeath();
+
 private:
 	/** Top down camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
