@@ -83,5 +83,25 @@
         "file": "D:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\UntitledGameProjectile.h",
         "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
         "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\ShootingController.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\ShootingController.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\WeaponCore.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\MyStuff\\\\Work\\\\TUe\\\\GameDev\\\\Projects\\\\Untitled-Game\\\\Source\\\\UntitledGame\\\\WeaponCore.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.33.31629\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\.vscode\\compileCommands_Default\\UntitledGame.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
     }
 ]
