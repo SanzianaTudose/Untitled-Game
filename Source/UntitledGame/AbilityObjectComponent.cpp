@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "GameFramework/ProjectileMovementComponent.h"
 #include "AbilityObjectComponent.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values for this component's properties
 UAbilityObjectComponent::UAbilityObjectComponent()
