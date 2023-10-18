@@ -3,6 +3,7 @@
 
 #include "EnemyCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "UntitledGameProjectile.h"
 
 AEnemyCharacter::AEnemyCharacter()
 {
@@ -24,8 +25,13 @@ void AEnemyCharacter::BeginPlay()
 
 void AEnemyCharacter::Attack()
 {
-	//FVector loc = ProjectileSpawnPoint->GetComponentLocation();
-	UE_LOG(LogTemp, Warning, TEXT("whatev"));
+	FRotator FireRotation = GetActorRotation();
+	FVector ProjectileSpawnLocation = GetActorLocation() + FireRotation.RotateVector(ProjectileOffset);
+
+	UE_LOG(LogTemp, Warning, TEXT("FireRotation: %s Location: %s"), *FireRotation.ToString(), *ProjectileSpawnLocation.ToString());
+
+	AUntitledGameProjectile* Projectile = GetWorld()->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
+	Projectile->SetOwner(this);
 }
 
 void AEnemyCharacter::HandleDeath()

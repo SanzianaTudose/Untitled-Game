@@ -21,5 +21,6 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	USceneComponent* ProjectileSpawnPoint;
+	UPROPERTY(EditAnywhere)
+	FVector ProjectileOffset = FVector(50.f, 0.f, 50.f);
 };
