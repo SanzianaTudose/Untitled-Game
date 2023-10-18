@@ -6,7 +6,8 @@
 #include "AIController.h"
 #include "EnemyAIController.generated.h"
 
-
+// Handles Enemy movement and attack behaviors
+// For now, all Enemies have the same attributes and behavior
 UCLASS()
 class UNTITLEDGAME_API AEnemyAIController : public AAIController
 {
@@ -18,11 +19,18 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	void Attack(); // For now, just shoots a basic projectile
+	void Attack(); // Actual attack functionality. For now, just shoots a basic projectile.
+	void AttackAttempt(); // Called regularly based on {AttackRate} 
 
+	APawn* OwnPawn;
 	APawn* PlayerPawn;
 
-private:
-	UPROPERTY(EditAnywhere)
-	float AcceptanceRadius = 200;
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	float AcceptanceRadius = 200.f; // How close the Enemy gets to Player
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	float AttackRange = 300.f;
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	float AttackRate = 2.f;
+	FTimerHandle AttackRateTimerHandle;
 };
