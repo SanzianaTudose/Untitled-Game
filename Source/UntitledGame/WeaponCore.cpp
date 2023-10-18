@@ -7,7 +7,6 @@
 #include <iostream>
 #include <random>
 
-// Sets default values for this component's properties
 UWeaponCore::UWeaponCore()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
@@ -17,8 +16,6 @@ UWeaponCore::UWeaponCore()
 
 }
 
-
-// Called when the game starts
 void UWeaponCore::BeginPlay()
 {
 	Super::BeginPlay();
@@ -49,23 +46,24 @@ void UWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability)
 
 }
 
-void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation)
+void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation, AActor* OwningActor)
 {
-    if (!bCanFire || AbilitiesClasses.Num() == 0) return;
+	if (!bCanFire || AbilitiesClasses.Num() == 0) return;
 
-    UWorld* World = GetWorld();
-    if (!World) return; // Make sure GetWorld() doesn't return nullptr.
+	UWorld* World = GetWorld();
+	if (!World) return; // Make sure GetWorld() doesn't return nullptr.
 
-    AUntitledGameProjectile* NewProjectile = World->SpawnActor<AUntitledGameProjectile>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
-    bCanFire = false;
+	AUntitledGameProjectile* NewProjectile = World->SpawnActor<AUntitledGameProjectile>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
+	NewProjectile->SetOwner(OwningActor);
+	bCanFire = false;
 
-    FTimerHandle TimerHandle_ShotTimerExpired;
-    float TimerDuration = (AbilityIndex == AbilitiesClasses.Num() - 1) ? ReloadTime : FireRate;
+	FTimerHandle TimerHandle_ShotTimerExpired;
+	float TimerDuration = (AbilityIndex == AbilitiesClasses.Num() - 1) ? ReloadTime : FireRate;
 
-    World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &UWeaponCore::ShotTimerExpired, TimerDuration);
+	World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &UWeaponCore::ShotTimerExpired, TimerDuration);
 
-    AbilityIndex++;
-    AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
+	AbilityIndex++;
+	AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
 }
 
 void UWeaponCore::ShotTimerExpired()

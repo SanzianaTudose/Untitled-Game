@@ -6,7 +6,6 @@
 #include "Sound/SoundBase.h"
 #include "WeaponCore.h"
 
-// Sets default values for this component's properties
 UShootingController::UShootingController()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
@@ -16,29 +15,22 @@ UShootingController::UShootingController()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 }
 
-
-// Called when the game starts
 void UShootingController::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-
-// Called every frame
 void UShootingController::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
 }
 
 void UShootingController::OnFire()
 {
 	UWeaponCore* WeaponCore = Cast<UWeaponCore>(OwningActor->GetComponentByClass(UWeaponCore::StaticClass()));
 	FVector OwningActorLocation = FVector(0, 0, 0);
-	if(OwningActor != nullptr)
-	{
+	if (OwningActor != nullptr)
 		OwningActorLocation = OwningActor->GetActorLocation();
-	}
 
 	// If it's ok to fire again
 	if (WeaponCore != nullptr && WeaponCore->bCanFire)
@@ -51,7 +43,7 @@ void UShootingController::OnFire()
 			FHitResult HitResult;
 			ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
 			bool bHit = PlayerController->GetHitResultUnderCursorByChannel(TraceType, true, HitResult);
-			
+
 			if (bHit)
 			{
 				// Process the hit result, e.g.,:
@@ -64,14 +56,13 @@ void UShootingController::OnFire()
 		// Spawn projectile at an offset from this pawn
 		const FVector ProjectileSpawnLocation = OwningActorLocation + FireRotation.RotateVector(GunOffset);
 
-
 		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
 			// spawn the projectile
 			if (WeaponCore != nullptr)
 			{
-				WeaponCore->ActivateAbitlity(ProjectileSpawnLocation, FireRotation);
+				WeaponCore->ActivateAbitlity(ProjectileSpawnLocation, FireRotation, OwningActor);
 			}
 		}
 
@@ -82,5 +73,3 @@ void UShootingController::OnFire()
 		}
 	}
 }
-
-
