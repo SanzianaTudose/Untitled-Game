@@ -37,6 +37,8 @@ public:
 	void PrintCoreStats();
 	void HandleDeath();
 
+	virtual void Tick(float DeltaSeconds) override;
+
 protected:
 	virtual void BeginPlay() override;
 
