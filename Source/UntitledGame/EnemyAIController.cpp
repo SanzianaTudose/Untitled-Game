@@ -4,6 +4,7 @@
 #include "EnemyAIController.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
+#include "EnemyCharacter.h"
 
 void AEnemyAIController::BeginPlay()
 {
@@ -12,6 +13,10 @@ void AEnemyAIController::BeginPlay()
     OwnPawn = GetPawn();
     if (OwnPawn == nullptr)
         UE_LOG(LogTemp, Error, TEXT("EnemyAIController: Own Enemy Pawn not found!"));
+
+    OwnEnemy = Cast<AEnemyCharacter>(OwnPawn);
+    if (OwnEnemy == nullptr)
+        UE_LOG(LogTemp, Error, TEXT("EnemyAIController: AEnemyCharacter script could not be found on Enemy pawn."));
 
     PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
     if (PlayerPawn == nullptr)
@@ -40,8 +45,9 @@ void AEnemyAIController::Tick(float DeltaSeconds)
 
 void AEnemyAIController::Attack()
 {
-    // TODO: Implement this so it shoots a projectile waiting some time in between shots
-    UE_LOG(LogTemp, Warning, TEXT("ATTACK"));
+    if (OwnEnemy == nullptr) return;
+
+    OwnEnemy->Attack(); // Delegate attack functionality to specifc Enemy
 }
 
 void AEnemyAIController::AttackAttempt()

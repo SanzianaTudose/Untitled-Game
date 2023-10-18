@@ -22,6 +22,12 @@ void AEnemyCharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
+void AEnemyCharacter::Attack()
+{
+	//FVector loc = ProjectileSpawnPoint->GetComponentLocation();
+	UE_LOG(LogTemp, Warning, TEXT("whatev"));
+}
+
 void AEnemyCharacter::HandleDeath()
 {
 	Destroy();

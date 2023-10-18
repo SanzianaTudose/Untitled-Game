@@ -19,11 +19,12 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	void Attack(); // Actual attack functionality. For now, just shoots a basic projectile.
+	void Attack(); // C
 	void AttackAttempt(); // Called regularly based on {AttackRate} 
 
 	APawn* OwnPawn;
 	APawn* PlayerPawn;
+	class AEnemyCharacter* OwnEnemy;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float AcceptanceRadius = 200.f; // How close the Enemy gets to Player
