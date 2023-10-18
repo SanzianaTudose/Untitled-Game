@@ -35,10 +35,10 @@ public:
 	void OnFire();
 	UFUNCTION(BlueprintCallable)
 	void PrintCoreStats();
+	void HandleDeath();
 
 protected:
 	virtual void BeginPlay() override;
-	void HandleDeath();
 
 private:
 	/** Top down camera */
