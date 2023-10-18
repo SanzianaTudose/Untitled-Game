@@ -6,6 +6,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "WeaponCore.h"
+#include "ShootingController.h"
+DEFINE_LOG_CATEGORY(Player);
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -19,9 +22,7 @@ APlayerCharacter::APlayerCharacter()
 	bUseControllerRotationRoll = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = false; // Don't rotate character to moving direction
-	GetCharacterMovement()->bUseControllerDesiredRotation = true;
-
+	GetCharacterMovement()->bOrientRotationToMovement = true; // Rotate character to moving direction
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
@@ -43,11 +44,34 @@ APlayerCharacter::APlayerCharacter()
 	// TODO: Is this needed (?)
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
+
+	ShootingController = CreateDefaultSubobject<UShootingController>(TEXT("ShootingController"));
+	ShootingController->OwningActor = this;
 }
 
-void APlayerCharacter::HandleDeath()
+void APlayerCharacter::BeginPlay()
 {
-	// TODO: Test if this works once Enemies can deal damage
-	// Implement this based on what we want (e.g. Game Over screen / Respawn)
-	// UE_LOG(LogTemp, Warning, TEXT("Player died!"));
+	Super::BeginPlay();
+	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	WeaponCore->GenerateStats(1);
+	PrintCoreStats();
 }
+// Called every frame
+void APlayerCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
+void APlayerCharacter::OnFire()
+{
+	ShootingController->OnFire();
+}
+
+void APlayerCharacter::PrintCoreStats()
+{
+	UE_LOG(Player, Warning, TEXT("MaxAbilities: %d\n"), WeaponCore->MaxAbilities);
+	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->FireRate);
+	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->ReloadTime);
+}
+
+

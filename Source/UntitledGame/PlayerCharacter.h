@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "WeaponCore.h"
 #include "PlayerCharacter.generated.h"
+DECLARE_LOG_CATEGORY_EXTERN(Player, Log, All);
 
 UCLASS()
 class UNTITLEDGAME_API APlayerCharacter : public ACharacter
@@ -25,7 +27,20 @@ public:
 		return CameraBoom;
 	}
 
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	class UWeaponCore* WeaponCore;
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	class UShootingController* ShootingController;
+
+	void OnFire();
+	UFUNCTION(BlueprintCallable)
+	void PrintCoreStats();
 	void HandleDeath();
+
+	virtual void Tick(float DeltaSeconds) override;
+
+protected:
+	virtual void BeginPlay() override;
 
 private:
 	/** Top down camera */
