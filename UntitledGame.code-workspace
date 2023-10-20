@@ -7,10 +7,6 @@
 		{
 			"name": "UE4",
 			"path": "C:\\Program Files\\Epic Games\\UE_4.27"
-		}
-	],
-	"settings": {
-		"typescript.tsc.autoDetect": "off"
 	},
 	"extensions": {
 		"recommendations": [
