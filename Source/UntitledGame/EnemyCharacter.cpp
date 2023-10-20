@@ -28,8 +28,6 @@ void AEnemyCharacter::Attack()
 	FRotator FireRotation = GetActorRotation();
 	FVector ProjectileSpawnLocation = GetActorLocation() + FireRotation.RotateVector(ProjectileOffset);
 
-	UE_LOG(LogTemp, Warning, TEXT("FireRotation: %s Location: %s"), *FireRotation.ToString(), *ProjectileSpawnLocation.ToString());
-
 	AUntitledGameProjectile* Projectile = GetWorld()->SpawnActor<AUntitledGameProjectile>(ProjectileSpawnLocation, FireRotation);
 	Projectile->SetOwner(this);
 }

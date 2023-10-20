@@ -22,5 +22,5 @@ protected:
 
 private:
 	UPROPERTY(EditAnywhere)
-	FVector ProjectileOffset = FVector(50.f, 0.f, 50.f);
+	FVector ProjectileOffset = FVector(90.f, 0.f, 0.f);
 };

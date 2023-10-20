@@ -27,10 +27,10 @@ protected:
 	class AEnemyCharacter* OwnEnemy;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
-	float AcceptanceRadius = 300.f; // How close the Enemy gets to Player
+	float AcceptanceRadius = 200.f; // How close the Enemy gets to Player
 
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
-	float AttackRange = 500.f;
+	float AttackRange = 400.f;
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	float AttackRate = 2.f;
 	FTimerHandle AttackRateTimerHandle;

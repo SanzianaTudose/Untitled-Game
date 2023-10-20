@@ -1,5 +1,5 @@
 /FI "C:\Program Files\Epic Games\UE_4.27\Engine\Plugins\Developer\PerforceSourceControl\Intermediate\Build\Win64\UE4Editor\Development\PerforceSourceControl\Definitions.PerforceSourceControl.h" 
-/FI "D:\MyStuff\Work\TUe\GameDev\Projects\Untitled-Game\Intermediate\Build\Win64\UntitledGameEditor\Development\Slate\SharedPCH.Slate.ShadowErrors.h" 
+/FI "D:\My Stuff\Work\TUe\Game Dev\Projects\Untitled-Game\Intermediate\Build\Win64\UntitledGameEditor\Development\Slate\SharedPCH.Slate.ShadowErrors.h" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Source" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Plugins\Developer\PerforceSourceControl\Source\PerforceSourceControl\Private" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Core" 
