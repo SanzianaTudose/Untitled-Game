@@ -14,8 +14,13 @@ class UNTITLEDGAME_API AEnemyCharacter : public ACharacter
 public:
 	AEnemyCharacter();
 
+	void Attack(); // Functionality for a single attack. For now, fires a single shot.
 	void HandleDeath();
 
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	UPROPERTY(EditAnywhere)
+	FVector ProjectileOffset = FVector(90.f, 0.f, 0.f);
 };

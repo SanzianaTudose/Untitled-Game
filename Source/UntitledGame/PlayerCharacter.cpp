@@ -63,6 +63,11 @@ void APlayerCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void APlayerCharacter::HandleDeath()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Player death!"));
+}
+
 void APlayerCharacter::OnFire()
 {
 	ShootingController->OnFire();

@@ -9,9 +9,13 @@
 				"UntitledGame",
 				"Win32",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -22,12 +26,16 @@
 				"UntitledGame",
 				"Win32",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"cwd": "C:\\VSandUE\\UE_4.27"
+			"dependsOn": [
+				"UntitledGame Win32 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -38,33 +46,41 @@
 				"UntitledGame",
 				"Win32",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+		},
+		{
+			"label": "UntitledGame Win32 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGame",
 				"Win32",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGame Win32 DebugGame Rebuild",
 			"group": "build",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"UntitledGame",
+				"Win32",
+				"DebugGame",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -73,20 +89,24 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGame Win32 DebugGame Clean",
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"args": [
+				"UntitledGame",
+				"Win32",
+				"DebugGame",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -97,10 +117,14 @@
 				"UntitledGame",
 				"Win32",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
 		},
 		{
 			"label": "UntitledGame Win32 Development Rebuild",
@@ -110,14 +134,18 @@
 				"UntitledGame",
 				"Win32",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"dependsOn": [
 				"UntitledGame Win32 Development Clean"
 			],
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
+		},
 		{
 			"label": "UntitledGame Win32 Development Clean",
 			"group": "build",
@@ -126,26 +154,30 @@
 				"UntitledGame",
 				"Win32",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+		},
+		{
+			"label": "UntitledGame Win32 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGame",
 				"Win32",
 				"Shipping",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -154,14 +186,18 @@
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"Win32",
+				"Shipping",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
 			"problemMatcher": "$msCompile",
 			"dependsOn": [
 				"UntitledGame Win32 Shipping Clean"
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -171,10 +207,14 @@
 			"args": [
 				"UntitledGame",
 				"Win32",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"Shipping",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -185,10 +225,14 @@
 				"UntitledGame",
 				"Win32",
 				"Test",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
 		},
 		{
 			"label": "UntitledGame Win32 Test Rebuild",
@@ -198,7 +242,7 @@
 				"UntitledGame",
 				"Win32",
 				"Test",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -207,33 +251,41 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
+		},
+		{
+			"label": "UntitledGame Win32 Test Clean",
+			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
 			"args": [
 				"UntitledGame",
 				"Win32",
 				"Test",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGame Win64 Debug Build",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"UntitledGame",
+				"Win64",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -242,14 +294,18 @@
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"Win64",
+				"Debug",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
 			"problemMatcher": "$msCompile",
 			"dependsOn": [
 				"UntitledGame Win64 Debug Clean"
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -260,9 +316,13 @@
 				"UntitledGame",
 				"Win64",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -273,20 +333,24 @@
 				"UntitledGame",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
+		},
+		{
+			"label": "UntitledGame Win64 DebugGame Rebuild",
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGame",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -295,20 +359,24 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
+		},
+		{
+			"label": "UntitledGame Win64 DebugGame Clean",
+			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
 			"args": [
 				"UntitledGame",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -316,12 +384,16 @@
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"UntitledGame",
+				"Win64",
+				"Development",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -332,12 +404,16 @@
 				"UntitledGame",
 				"Win64",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"UntitledGame Win64 Development Clean"
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -348,9 +424,13 @@
 				"UntitledGame",
 				"Win64",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -361,20 +441,24 @@
 				"UntitledGame",
 				"Win64",
 				"Shipping",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+		{
+			"label": "UntitledGame Win64 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
 				"UntitledGame",
 				"Win64",
 				"Shipping",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -383,20 +467,24 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"label": "UntitledGame Win64 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"UntitledGame",
 				"Win64",
 				"Shipping",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -404,12 +492,16 @@
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"UntitledGame",
+				"Win64",
+				"Test",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -420,12 +512,16 @@
 				"UntitledGame",
 				"Win64",
 				"Test",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"cwd": "C:\\VSandUE\\UE_4.27"
+			"dependsOn": [
+				"UntitledGame Win64 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -436,12 +532,16 @@
 				"UntitledGame",
 				"Win64",
 				"Test",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
+			}
+		},
+		{
 			"label": "UntitledGameEditor Win64 Debug Build",
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Build.bat",
@@ -449,20 +549,24 @@
 				"UntitledGameEditor",
 				"Win64",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+		{
+			"label": "UntitledGameEditor Win64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
 				"UntitledGameEditor",
 				"Win64",
 				"Debug",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -471,20 +575,24 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGameEditor Win64 Debug Clean",
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"args": [
+				"UntitledGameEditor",
+				"Win64",
+				"Debug",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -495,9 +603,13 @@
 				"UntitledGameEditor",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -508,12 +620,16 @@
 				"UntitledGameEditor",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"cwd": "C:\\VSandUE\\UE_4.27"
+			"dependsOn": [
+				"UntitledGameEditor Win64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
@@ -524,33 +640,41 @@
 				"UntitledGameEditor",
 				"Win64",
 				"DebugGame",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+		},
+		{
+			"label": "UntitledGameEditor Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
 			"args": [
 				"UntitledGameEditor",
 				"Win64",
 				"Development",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGameEditor Win64 Development Rebuild",
 			"group": "build",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"UntitledGameEditor",
+				"Win64",
+				"Development",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
@@ -559,28 +683,25 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		},
 		{
 			"label": "UntitledGameEditor Win64 Development Clean",
 			"group": "build",
 			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
+			"args": [
+				"UntitledGameEditor",
+				"Win64",
+				"Development",
+				"D:\\My Stuff\\Work\\TUe\\Game Dev\\Projects\\Untitled-Game\\UntitledGame.uproject",
 				"-waitmutex"
 			],
 			"problemMatcher": "$msCompile",
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\VSandUE\\UE_4.27"
+				"cwd": "C:\\Program Files\\Epic Games\\UE_4.27"
 			}
 		}
 	]
 }
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
-				"D:\\MyStuff\\Work\\TUe\\GameDev\\Projects\\Untitled-Game\\UntitledGame.uproject",
