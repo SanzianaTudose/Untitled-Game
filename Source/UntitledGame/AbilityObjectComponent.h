@@ -19,7 +19,7 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	UStaticMeshComponent* mainObj; // the main mesh representing the ability object
+	UStaticMeshComponent* MainObj; // the main mesh representing the ability object
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -29,13 +29,13 @@ public:
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 
-	float damage;
+	float Damage;
 	//will determine if the ability object will be able to hit more than one enemy
-	bool destroyOnHit = true;
-	float range;
-	FVector initialPosition;
+	bool bDestroyOnHit = true;
+	float Range;
+	FVector InitialPosition;
 
-	void setData(/*Element, Effect[]*/ float d, bool doh, float r);
+	void SetData(/*Element, Effect[]*/ float d, bool doh, float r);
 
 	UFUNCTION()
 	void OnEnemyHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

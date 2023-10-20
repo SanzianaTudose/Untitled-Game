@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BaseAbility.h"
+#include "AbilityObjectSpawner.h"
 #include "AbilityObjectComponent.h"
 // Sets default values
-ABaseAbility::ABaseAbility()
+AAbilityObjectSpawner::AAbilityObjectSpawner()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -12,41 +12,36 @@ ABaseAbility::ABaseAbility()
 }
 
 // Called when the game starts or when spawned
-void ABaseAbility::BeginPlay()
+void AAbilityObjectSpawner::BeginPlay()
 {
 	Super::BeginPlay();
-	spawnObjects();
+	SpawnObjects();
 	
 }
 
 // Called every frame
-void ABaseAbility::Tick(float DeltaTime)
+void AAbilityObjectSpawner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-void ABaseAbility::spawnObjects()
+void AAbilityObjectSpawner::SpawnObjects()
 {
 	UWorld* const World = GetWorld();
 
-	for(auto abilityClass : abilityObjects)
+	for(auto AbilityClass : AbilityObjects)
 	{
 		if (World != nullptr)
 		{
 			// spawn the projectile
-			//this does not work
-			AActor* actor = World->SpawnActor<AActor>(abilityClass, GetActorLocation(), GetActorRotation());
-			//this works
-			// AActor* actor = World->SpawnActor(abilityClass);
-			// actor->SetActorRotation(GetActorRotation());
-			// actor->SetActorLocation(GetActorLocation());
+			AActor* actor = World->SpawnActor<AActor>(AbilityClass, GetActorLocation(), GetActorRotation());
 			UAbilityObjectComponent* obj = actor->FindComponentByClass<UAbilityObjectComponent>();
 			if(obj)
 			{
-				obj->setData(damage, destroyOnHit, range);
+				//give it the needed stats
+				obj->SetData(Damage, bDestroyOnHit, Range);
 			}
-			UE_LOG(LogTemp, Warning, TEXT("Object Spawned"));
 		}
 	}
 }

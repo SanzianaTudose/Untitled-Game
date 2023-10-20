@@ -4,23 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BaseAbility.generated.h"
+#include "AbilityObjectSpawner.generated.h"
 
 UCLASS()
-class UNTITLEDGAME_API ABaseAbility : public AActor
+class UNTITLEDGAME_API AAbilityObjectSpawner : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABaseAbility();
+	AAbilityObjectSpawner();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
-	void spawnObjects();
+	void SpawnObjects();
 
 public:	
 	// Called every frame
@@ -31,17 +31,14 @@ public:
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 	UPROPERTY(EditAnywhere)
-	float damage = 10;
+	float Damage = 10;
 	//will determine if the ability object will be able to hit more than one enemy
 	UPROPERTY(EditAnywhere)
-	bool destroyOnHit = true;
+	bool bDestroyOnHit = true;
 	UPROPERTY(EditAnywhere)
-	float range = 10;
-	UPROPERTY(EditAnywhere)
-	FVector initialPosition;
-
+	float Range = 10;
 
 	UPROPERTY(EditDefaultsOnly)
-	TArray<TSubclassOf<AActor>> abilityObjects;
+	TArray<TSubclassOf<AActor>> AbilityObjects;
 
 };
