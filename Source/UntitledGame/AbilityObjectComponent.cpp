@@ -24,17 +24,15 @@ void UAbilityObjectComponent::BeginPlay()
 
 	if(StaticMeshComps.Num() > 0)
 	{
-		mainObj = StaticMeshComps[0];
-		mainObj->OnComponentBeginOverlap.AddDynamic(this, &UAbilityObjectComponent::OnEnemyHit);
-		UE_LOG(LogTemp, Warning, TEXT("Found component!"));
-
+		MainObj = StaticMeshComps[0];
+		MainObj->OnComponentBeginOverlap.AddDynamic(this, &UAbilityObjectComponent::OnEnemyHit);
 	}else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Could not find component!"));
 	}
 
 	//save the initial position for range calculations
-	initialPosition = GetOwner()->GetActorLocation();
+	InitialPosition = GetOwner()->GetActorLocation();
 	// ...
 	
 }
@@ -45,14 +43,14 @@ void UAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick TickType
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	FVector currentPosition = GetOwner()->GetActorLocation();
+	FVector CurrentPosition = GetOwner()->GetActorLocation();
 
 	//if range is exeeded destroy the object
-	float distance = FVector::Dist(initialPosition, currentPosition);
-	if(distance > range)
+	float Distance = FVector::Dist(InitialPosition, CurrentPosition);
+	if(Distance > Range)
 	{
 		//delete object
-		UE_LOG(LogTemp, Display, TEXT("Object out of range: %f / %f"), distance, range);
+		UE_LOG(LogTemp, Display, TEXT("Object out of range: %f / %f"), Distance, Range);
 		GetOwner()->Destroy();
 	}
 	// ...
@@ -63,14 +61,12 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	UE_LOG(LogTemp, Display, TEXT("Collision detected"));
 }
 
-void UAbilityObjectComponent::setData(float d, bool doh, float r)
+void UAbilityObjectComponent::SetData(float d, bool doh, float r)
 {
 	//set all the needed variables
 	//element
 	//effect[]
-	damage = d;
-	destroyOnHit = doh;
-	range = r;
-	UE_LOG(LogTemp, Display, TEXT("Data set!"));
-
+	Damage = d;
+	bDestroyOnHit = doh;
+	Range = r;
 }
