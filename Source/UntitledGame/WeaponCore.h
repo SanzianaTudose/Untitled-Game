@@ -28,6 +28,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void GenerateStats(int level);
 	void AddAbility(AUntitledGameProjectile* Ability);
+	UFUNCTION(BlueprintCallable)
+	void AddAbility(TSubclassOf<AActor> AbilityClass);
 	void RemoveAbility(AUntitledGameProjectile* Ability);
 	void ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation, AActor* OwningActor);
 	void ShotTimerExpired();
@@ -35,7 +37,7 @@ public:
 private:
 	int PlayerLevel;
 	int AbilityIndex;
-	TArray<TSubclassOf<AUntitledGameProjectile>> AbilitiesClasses;
+	TArray<TSubclassOf<AActor>> AbilitiesClasses;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
