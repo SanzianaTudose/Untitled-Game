@@ -20,7 +20,7 @@ void UWeaponCore::BeginPlay()
 {
 	Super::BeginPlay();
 	AbilityIndex = 0;
-	AbilitiesClasses = TArray<TSubclassOf<AUntitledGameProjectile>>();
+	AbilitiesClasses = TArray<TSubclassOf<AActor>>();
 	AbilitiesClasses.Add(AUntitledGameProjectile::StaticClass());
 	bCanFire = true;
 }
@@ -41,6 +41,11 @@ void UWeaponCore::AddAbility(AUntitledGameProjectile* Ability)
 
 }
 
+void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
+{
+	AbilitiesClasses.Add(AbilityClass);
+}
+
 void UWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability)
 {
 
@@ -53,7 +58,7 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 	UWorld* World = GetWorld();
 	if (!World) return; // Make sure GetWorld() doesn't return nullptr.
 
-	AUntitledGameProjectile* NewProjectile = World->SpawnActor<AUntitledGameProjectile>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
+	AActor* NewProjectile = World->SpawnActor<AActor>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
 	NewProjectile->SetOwner(OwningActor);
 	bCanFire = false;
 
