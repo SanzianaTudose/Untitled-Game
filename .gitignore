@@ -2,7 +2,7 @@
 .vs/*
 
 # Visual Studio Code 
-.vscode/**/*
+**/.vscode/
 
 # Compiled Object files
 *.slo
