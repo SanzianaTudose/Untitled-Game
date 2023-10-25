@@ -64,10 +64,63 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 
 	AbilityIndex++;
 	AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
+    if(AbilityIndex == AbilitiesClasses.Num() - 1)
+    {
+        CurrentReloadTimeLeft = ReloadTime;
+        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+    }
+    else
+    {
+        CurrentReloadTimeLeft = FireRate;
+        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+    }
 }
 
 void UWeaponCore::ShotTimerExpired()
 {
 	bCanFire = true;
+	// if(ReloadTimeWidget)
+    // {
+    //     ReloadTimeWidget->RemoveFromViewport();
+    //     ReloadTimeWidget = nullptr; // Clear the widget reference
+    // }
 }
 
+// void UWeaponCore::InitializeReloadTimeWidget()
+// {
+//     if(!ReloadTimeWidget)
+//     {
+//        if (ReloadWidgetClass)
+// 		{
+// 			UUserWidget* ReloadWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), ReloadWidgetClass);
+// 			if (ReloadWidgetInstance)
+// 			{
+// 				ReloadWidgetInstance->AddToViewport();
+// 			}
+// 		}
+//     }
+// }
+
+
+// void UWeaponCore::UpdateReloadTimeWidget(float TimeLeft)
+// {
+//     // if (ReloadTimeWidget && ReloadTimeWidget->Implements<UBPI_ReloadDisplay>())
+//     // {
+//     //     // Call the interface function on the Blueprint widget
+//     //     ReloadTimeWidget->Execute_UpdateReloadTimeDisplay(ReloadTimeWidget, TimeLeft);
+//     // }
+// }
+
+
+void UWeaponCore::DecrementReloadTime()
+{
+    CurrentReloadTimeLeft -= 0.1; // Decrement the time by the frame time.
+
+
+    // If the reload time has expired, stop updating.
+    if(CurrentReloadTimeLeft <= 0.0f)
+    {
+        GetWorld()->GetTimerManager().ClearTimer(TimerHandle_ReloadTimeDecrement);
+        ShotTimerExpired();
+    }
+}

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "UntitledGameProjectile.h"
+#include "Blueprint/UserWidget.h"
 #include "WeaponCore.generated.h"
 
 
@@ -23,6 +24,8 @@ public:
 	float FireRate;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float ReloadTime;
+	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	float CurrentReloadTimeLeft;
 	bool bCanFire;
 
 	UFUNCTION(BlueprintCallable)
@@ -32,10 +35,15 @@ public:
 	void ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation, AActor* OwningActor);
 	void ShotTimerExpired();
 
+
 private:
 	int PlayerLevel;
 	int AbilityIndex;
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TArray<TSubclassOf<AUntitledGameProjectile>> AbilitiesClasses;
+	FTimerHandle TimerHandle_ReloadTimeDecrement;
+
+	void DecrementReloadTime();
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
