@@ -44,6 +44,12 @@ void UWeaponCore::AddAbility(AUntitledGameProjectile* Ability)
 void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
 {
 	AbilitiesClasses.Add(AbilityClass);
+
+	// Remove first item if array is too big TODO: make this behavior clear to the Player, maybe call RemoveAbility() ?
+	if (AbilitiesClasses.Num() > MaxAbilities)
+	{
+		AbilitiesClasses.RemoveAt(0, 1, true);
+	}
 }
 
 void UWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability)
