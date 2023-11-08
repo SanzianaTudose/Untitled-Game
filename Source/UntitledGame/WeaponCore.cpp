@@ -20,7 +20,7 @@ void UWeaponCore::BeginPlay()
 {
 	Super::BeginPlay();
 	AbilityIndex = 0;
-	AbilitiesClasses = TArray<TSubclassOf<AUntitledGameProjectile>>();
+	AbilitiesClasses = TArray<TSubclassOf<AActor>>();
 	AbilitiesClasses.Add(AUntitledGameProjectile::StaticClass());
 	bCanFire = true;
 }
@@ -36,9 +36,16 @@ void UWeaponCore::GenerateStats(int level)
 	ReloadTime = dis2(gen);
 }
 
-void UWeaponCore::AddAbility(AUntitledGameProjectile* Ability)
-{
 
+void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
+{
+	AbilitiesClasses.Add(AbilityClass);
+
+	// Remove first item if array is too big TODO: make this behavior clear to the Player, maybe call RemoveAbility() ?
+	if (AbilitiesClasses.Num() > MaxAbilities)
+	{
+		AbilitiesClasses.RemoveAt(0, 1, true);
+	}
 }
 
 void UWeaponCore::RemoveAbility(AUntitledGameProjectile* Ability)
@@ -53,7 +60,7 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 	UWorld* World = GetWorld();
 	if (!World) return; // Make sure GetWorld() doesn't return nullptr.
 
-	AUntitledGameProjectile* NewProjectile = World->SpawnActor<AUntitledGameProjectile>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
+	AActor* NewProjectile = World->SpawnActor<AActor>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
 	NewProjectile->SetOwner(OwningActor);
 	bCanFire = false;
 
@@ -79,37 +86,9 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 void UWeaponCore::ShotTimerExpired()
 {
 	bCanFire = true;
-	// if(ReloadTimeWidget)
-    // {
-    //     ReloadTimeWidget->RemoveFromViewport();
-    //     ReloadTimeWidget = nullptr; // Clear the widget reference
-    // }
 }
 
-// void UWeaponCore::InitializeReloadTimeWidget()
-// {
-//     if(!ReloadTimeWidget)
-//     {
-//        if (ReloadWidgetClass)
-// 		{
-// 			UUserWidget* ReloadWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), ReloadWidgetClass);
-// 			if (ReloadWidgetInstance)
-// 			{
-// 				ReloadWidgetInstance->AddToViewport();
-// 			}
-// 		}
-//     }
-// }
 
-
-// void UWeaponCore::UpdateReloadTimeWidget(float TimeLeft)
-// {
-//     // if (ReloadTimeWidget && ReloadTimeWidget->Implements<UBPI_ReloadDisplay>())
-//     // {
-//     //     // Call the interface function on the Blueprint widget
-//     //     ReloadTimeWidget->Execute_UpdateReloadTimeDisplay(ReloadTimeWidget, TimeLeft);
-//     // }
-// }
 
 
 void UWeaponCore::DecrementReloadTime()
