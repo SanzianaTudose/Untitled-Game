@@ -36,6 +36,7 @@ public:
 	void ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation, AActor* OwningActor);
 	void ShotTimerExpired();
 
+
 private:
 	int PlayerLevel;
 	int AbilityIndex;
