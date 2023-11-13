@@ -22,10 +22,11 @@ APlayerCharacter::APlayerCharacter()
 	bUseControllerRotationRoll = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Rotate character to moving direction
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
+	GetCharacterMovement()->bOrientRotationToMovement = false; // Don't rotate character to moving direction
+	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 
 	// Create a camera boom...
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -60,6 +61,11 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void APlayerCharacter::HandleDeath()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Player death!"));
 }
 
 void APlayerCharacter::OnFire()
