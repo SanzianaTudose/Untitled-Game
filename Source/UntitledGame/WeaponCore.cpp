@@ -36,10 +36,6 @@ void UWeaponCore::GenerateStats(int level)
 	ReloadTime = dis2(gen);
 }
 
-void UWeaponCore::AddAbility(AUntitledGameProjectile* Ability)
-{
-
-}
 
 void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
 {
@@ -75,6 +71,16 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 
 	AbilityIndex++;
 	AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
+    if(AbilityIndex == AbilitiesClasses.Num() - 1)
+    {
+        CurrentReloadTimeLeft = ReloadTime;
+        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+    }
+    else
+    {
+        CurrentReloadTimeLeft = FireRate;
+        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+    }
 }
 
 void UWeaponCore::ShotTimerExpired()
@@ -82,3 +88,18 @@ void UWeaponCore::ShotTimerExpired()
 	bCanFire = true;
 }
 
+
+
+
+void UWeaponCore::DecrementReloadTime()
+{
+    CurrentReloadTimeLeft -= 0.1; // Decrement the time by the frame time.
+
+
+    // If the reload time has expired, stop updating.
+    if(CurrentReloadTimeLeft <= 0.0f)
+    {
+        GetWorld()->GetTimerManager().ClearTimer(TimerHandle_ReloadTimeDecrement);
+        ShotTimerExpired();
+    }
+}

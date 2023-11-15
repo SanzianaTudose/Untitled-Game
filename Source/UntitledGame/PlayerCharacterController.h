@@ -30,7 +30,6 @@ protected:
 	// End PlayerController interface
 
 	void MovePlayer(float DeltaTime);
-	void RotateToCursor();
 
 private:
 	virtual void BeginPlay() override;
