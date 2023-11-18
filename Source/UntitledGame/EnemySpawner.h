@@ -22,6 +22,10 @@ protected:
 
 	void SpawnEnemy();
 
+	UPROPERTY(EditAnywhere, Category = "Spawn");
 	float SpawnRate = 5.f;
 	FTimerHandle SpawnTimerHandle;
+
+	UPROPERTY(EditAnywhere, Category = "Spawn");
+	TSubclassOf<class AEnemyCharacter> EnemyBP;
 };
