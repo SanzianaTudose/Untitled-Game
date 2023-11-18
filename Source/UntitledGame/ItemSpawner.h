@@ -24,25 +24,25 @@ public:
     // Sets default values for this actor's properties
     AItemSpawner();
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WeaponSystem")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning")
     ItemType ItemType;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WeaponSystem", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
     int MaxAbility;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WeaponSystem", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
     float FireRate;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WeaponSystem", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
     float ReloadTime;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WeaponSystem", meta = (EditCondition = "ItemType == ItemType::Ability"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::Ability"))
     TSubclassOf<AActor> AbilityType;
 
-	UPROPERTY(EditAnywhere, Category = "Spawning")
+	UPROPERTY(EditAnywhere, Category = "Blueprints")
     TSubclassOf<AActor> AbilityItemBlueprint;
 
-    UPROPERTY(EditAnywhere, Category = "Spawning")
+    UPROPERTY(EditAnywhere, Category = "Blueprints")
     TSubclassOf<AActor> WeaponItemDebugBlueprint;
 
 	UFUNCTION(BlueprintCallable)
