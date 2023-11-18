@@ -5,6 +5,7 @@
 #include "EnemyCharacter.h"
 #include "UntitledGameGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "NavigationSystem.h"
 
 AEnemySpawner::AEnemySpawner()
 {
@@ -38,10 +39,26 @@ void AEnemySpawner::SpawnEnemy()
 
 	if (EnemyCount >= MaxEnemyCount) return;
 
-	FVector SpawnLocation = UGameplayStatics::GetPlayerCharacter(World, 0)->GetActorLocation(); // TODO: Change location to random point on nav mesh
+	// Find a random location on the NavMesh
+	UNavigationSystemV1* NavSystem = UNavigationSystemV1::GetCurrent(World);
+	if (!NavSystem)
+	{
+		UE_LOG(LogTemp, Error, TEXT("EnemySpawner: NavigationSystemV1 could not be found"));
+		return;
+	}
+
+	FNavLocation Result;
+	FVector PlayerLocation = UGameplayStatics::GetPlayerCharacter(World, 0)->GetActorLocation();
+
+	bool bFoundPath = NavSystem->GetRandomReachablePointInRadius(PlayerLocation, SpawnRadius, Result);
+	FVector SpawnLocation = Result.Location;
+
 	World->SpawnActor<AEnemyCharacter>(EnemyBP, SpawnLocation, FRotator::ZeroRotator);
 
 	if (UntitledGameGameMode)
 		UntitledGameGameMode->NotifyEnemySpawned();
+
+	UE_LOG(LogTemp, Error, TEXT("spawned"));
+
 }
 

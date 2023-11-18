@@ -7,7 +7,7 @@
 #include "EnemySpawner.generated.h"
 
 // Regularly spawns Enemies in a random location up to a max number of enemies 
-// Notifies GameMode when a new Enemy is spawned
+// Notifies GameMode when a new Enemy is spawned 
 
 UCLASS()
 class UNTITLEDGAME_API AEnemySpawner : public AActor
@@ -23,11 +23,14 @@ protected:
 	void SpawnEnemy();
 
 	UPROPERTY(EditAnywhere, Category = "Spawn");
-	int32 MaxEnemyCount = 2;
+	int32 MaxEnemyCount = 5;
 
 	UPROPERTY(EditAnywhere, Category = "Spawn");
 	float SpawnRate = 5.f;
 	FTimerHandle SpawnTimerHandle;
+
+	UPROPERTY(EditAnywhere, Category = "Spawn");
+	float SpawnRadius = 1000.f; // Radius to spawn (around the Player) 
 
 	UPROPERTY(EditAnywhere, Category = "Spawn");
 	TSubclassOf<class AEnemyCharacter> EnemyBP;
