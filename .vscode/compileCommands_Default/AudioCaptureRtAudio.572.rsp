@@ -1,5 +1,5 @@
 /FI "C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\AudioCaptureRtAudio\Definitions.AudioCaptureRtAudio.h" 
-/FI "D:\MyStuff\Work\TUe\GameDev\Projects\Untitled-Game\Intermediate\Build\Win64\UntitledGameEditor\Development\Core\SharedPCH.Core.ShadowErrors.h" 
+/FI "D:\My Stuff\Work\TUe\Game Dev\Projects\Untitled-Game\Intermediate\Build\Win64\UntitledGameEditor\Development\Core\SharedPCH.Core.ShadowErrors.h" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Source" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\AudioCaptureImplementations\AudioCaptureRtAudio\Private" 
 /I "C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Core" 
