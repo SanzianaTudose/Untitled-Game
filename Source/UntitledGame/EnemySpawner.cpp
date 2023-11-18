@@ -3,6 +3,7 @@
 #include "EnemySpawner.h"
 
 #include "EnemyCharacter.h"
+#include "UntitledGameGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 AEnemySpawner::AEnemySpawner()
@@ -15,6 +16,10 @@ void AEnemySpawner::BeginPlay()
 	Super::BeginPlay();
 
 	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemySpawner::SpawnEnemy, SpawnRate, true);
+
+	UntitledGameGameMode = Cast<AUntitledGameGameMode>(UGameplayStatics::GetGameMode(this));
+	if (UntitledGameGameMode == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("EnemySpawner: GameMode not found."));
 }
 
 void AEnemySpawner::SpawnEnemy()
@@ -26,9 +31,17 @@ void AEnemySpawner::SpawnEnemy()
 		return;
 	}
 
+	// Do not spawn any more Enemies if MaxEnemyCount has been reached 
+	int32 EnemyCount;
+	if (UntitledGameGameMode)
+		EnemyCount = UntitledGameGameMode->GetEnemyCount();
+
+	if (EnemyCount >= MaxEnemyCount) return;
+
 	FVector SpawnLocation = UGameplayStatics::GetPlayerCharacter(World, 0)->GetActorLocation(); // TODO: Change location to random point on nav mesh
 	World->SpawnActor<AEnemyCharacter>(EnemyBP, SpawnLocation, FRotator::ZeroRotator);
 
-	UE_LOG(LogTemp, Error, TEXT("Enemy SPAWNED"));
+	if (UntitledGameGameMode)
+		UntitledGameGameMode->NotifyEnemySpawned();
 }
 

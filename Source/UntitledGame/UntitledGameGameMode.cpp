@@ -23,5 +23,14 @@ void AUntitledGameGameMode::OnActorDeath(AActor* DeadActor)
 		// PlayerCharacter->HandleDeath();
 
 	if (AEnemyCharacter* KilledEnemy = Cast<AEnemyCharacter>(DeadActor))
+	{
 		KilledEnemy->HandleDeath();
+		EnemyCount--;
+	}
 }
+
+void AUntitledGameGameMode::NotifyEnemySpawned()
+{
+	EnemyCount++;
+}
+
