@@ -34,7 +34,7 @@ void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDa
 	float DamageToApply = FMath::Min(Health, Damage);
 	Health -= DamageToApply;
 
-	UE_LOG(LogTemp, Warning, TEXT("%s health : % f"), *GetOwner()->GetName(), Health);
+	// UE_LOG(LogTemp, Warning, TEXT("%s health : % f"), *GetOwner()->GetName(), Health);
 
 	if (UntitledGameGameMode && Health <= 0.f)
 		UntitledGameGameMode->OnActorDeath(DamagedActor);

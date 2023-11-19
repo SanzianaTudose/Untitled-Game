@@ -19,8 +19,8 @@ AUntitledGameGameMode::AUntitledGameGameMode()
 
 void AUntitledGameGameMode::OnActorDeath(AActor* DeadActor)
 {
-	// if (APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(DeadActor))
-		// PlayerCharacter->HandleDeath();
+	if (APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(DeadActor))
+		PlayerCharacter->HandleDeath();
 
 	if (AEnemyCharacter* KilledEnemy = Cast<AEnemyCharacter>(DeadActor))
 	{
