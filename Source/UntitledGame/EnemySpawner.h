@@ -30,7 +30,7 @@ protected:
 	FTimerHandle SpawnTimerHandle;
 
 	UPROPERTY(EditAnywhere, Category = "Spawn");
-	float SpawnRadius = 1000.f; // Radius to spawn (around the Player) 
+	float SpawnRadius = 10000.f; // Radius to spawn (around the Player) 
 
 	UPROPERTY(EditAnywhere, Category = "Spawn");
 	TSubclassOf<class AEnemyCharacter> EnemyBP;

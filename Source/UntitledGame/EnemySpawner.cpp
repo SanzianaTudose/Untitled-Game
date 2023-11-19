@@ -53,12 +53,9 @@ void AEnemySpawner::SpawnEnemy()
 	bool bFoundPath = NavSystem->GetRandomReachablePointInRadius(PlayerLocation, SpawnRadius, Result);
 	FVector SpawnLocation = Result.Location;
 
-	World->SpawnActor<AEnemyCharacter>(EnemyBP, SpawnLocation, FRotator::ZeroRotator);
+	AActor* SpawnedEnemy = World->SpawnActor<AEnemyCharacter>(EnemyBP, SpawnLocation, FRotator::ZeroRotator);
 
-	if (UntitledGameGameMode)
+	if (UntitledGameGameMode && SpawnedEnemy)
 		UntitledGameGameMode->NotifyEnemySpawned();
-
-	UE_LOG(LogTemp, Error, TEXT("spawned"));
-
 }
 
