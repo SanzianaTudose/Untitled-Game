@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Delegates/Delegate.h"
 #include "GameFramework/Actor.h"
 #include "Engine/Blueprint.h"
 #include "WeaponCore.h"
@@ -23,6 +24,10 @@ class UNTITLEDGAME_API AItemSpawner : public AActor
 public:	
     // Sets default values for this actor's properties
     AItemSpawner();
+
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnItemSpawnedDelegate);
+    UPROPERTY(BlueprintAssignable, Category = "ItemSpawning")
+    FOnItemSpawnedDelegate OnItemSpawned;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning")
     ItemType ItemType;

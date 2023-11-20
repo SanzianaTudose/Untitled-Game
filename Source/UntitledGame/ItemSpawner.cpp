@@ -61,8 +61,9 @@ void AItemSpawner::SpawnItem()
 
             if (UBoolProperty* RandomizeStatsProp = FindField<UBoolProperty>(ActorClass, FName("RandomizeStats")))
             {
-                // Set the RandomizeStats property of the spawned actor
+                UE_LOG(LogTemp, Warning , TEXT("RandomizeStatsProp found"));
                 RandomizeStatsProp->SetPropertyValue_InContainer(SpawnedWeapon, RandomizeStats);
+                OnItemSpawned.Broadcast();
             }
         }
     }
