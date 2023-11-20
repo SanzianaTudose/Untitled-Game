@@ -28,12 +28,15 @@ public:
     ItemType ItemType;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    bool RandomizeStats;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore && RandomizeStats == false"))
     int MaxAbility;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore && RandomizeStats == false"))
     float FireRate;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::WeaponCore && RandomizeStats == false"))
     float ReloadTime;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::Ability"))
