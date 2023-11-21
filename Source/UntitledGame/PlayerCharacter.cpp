@@ -23,7 +23,7 @@ APlayerCharacter::APlayerCharacter()
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = false; // Don't rotate character to moving direction
-	GetCharacterMovement()->bUseControllerDesiredRotation = true;
+	GetCharacterMovement()->bUseControllerDesiredRotation = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
