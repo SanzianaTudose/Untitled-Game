@@ -28,8 +28,8 @@ void APlayerCharacterController::BeginPlay()
     PlayerPawn = GetPawn();
     if (PlayerPawn == nullptr)
         UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));
-    	
-	PlayerLevel = 1;
+
+    PlayerLevel = 1;
 }
 
 void APlayerCharacterController::PlayerTick(float DeltaTime)
@@ -37,6 +37,7 @@ void APlayerCharacterController::PlayerTick(float DeltaTime)
     Super::PlayerTick(DeltaTime);
 
     MovePlayer(DeltaTime);
+    RotateToCursor();
 }
 
 void APlayerCharacterController::SetupInputComponent()
@@ -46,7 +47,7 @@ void APlayerCharacterController::SetupInputComponent()
     // Set up gameplay key bindings
     InputComponent->BindAxis(MoveForwardBinding);
     InputComponent->BindAxis(MoveRightBinding);
-	InputComponent->BindAction("Fire", IE_Pressed, this, &APlayerCharacterController::OnFire);
+    InputComponent->BindAction("Fire", IE_Pressed, this, &APlayerCharacterController::OnFire);
 }
 
 void APlayerCharacterController::MovePlayer(float DeltaTime)
@@ -61,14 +62,32 @@ void APlayerCharacterController::MovePlayer(float DeltaTime)
     PlayerPawn->AddMovementInput(MoveDirection);
 }
 
+void APlayerCharacterController::RotateToCursor()
+{
+    FVector CurLocation = PlayerPawn->GetActorLocation();
+
+    // Get cursor location
+    FHitResult HitResult;
+    GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType(ECC_Visibility), true, HitResult);
+    FVector CursorLocation = HitResult.Location;
+
+    FRotator CurRot = PlayerPawn->GetActorRotation();
+
+    // Determine new rotator Yaw based on difference
+    float NewYaw = (CursorLocation - CurLocation).Rotation().Yaw;;
+    FRotator NewRot = FRotator(CurRot.Pitch, NewYaw, CurRot.Roll);
+
+    SetControlRotation(NewRot);
+}
+
 void APlayerCharacterController::OnFire()
-{    
-	APawn* MyPawn = GetPawn();
-    if(MyPawn)
+{
+    APawn* MyPawn = GetPawn();
+    if (MyPawn)
     {
         // Cast to your custom Pawn or Character class
         APlayerCharacter* PlayerScript = Cast<APlayerCharacter>(MyPawn);
-        if(PlayerScript)
+        if (PlayerScript)
         {
             // Call a function on your character
             PlayerScript->OnFire();
