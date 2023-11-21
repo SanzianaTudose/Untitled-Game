@@ -30,9 +30,9 @@ void UWeaponCore::GenerateStats(int level)
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	MaxAbilities = 1;
-	std::uniform_real_distribution<> dis(1.0f, 2.0f);
+	std::uniform_real_distribution<> dis(0.25f, 0.75f);
 	FireRate = dis(gen);
-	std::uniform_real_distribution<> dis2(1.0f, 3.0f);
+	std::uniform_real_distribution<> dis2(0.5f, 1.0f);
 	ReloadTime = dis2(gen);
 }
 

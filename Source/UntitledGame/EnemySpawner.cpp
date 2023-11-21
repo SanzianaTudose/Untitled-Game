@@ -16,11 +16,6 @@ void AEnemySpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemySpawner::SpawnEnemy, SpawnRate, true);
-
-	UntitledGameGameMode = Cast<AUntitledGameGameMode>(UGameplayStatics::GetGameMode(this));
-	if (UntitledGameGameMode == nullptr)
-		UE_LOG(LogTemp, Error, TEXT("EnemySpawner: GameMode not found."));
 }
 
 void AEnemySpawner::SpawnEnemy()
@@ -57,5 +52,14 @@ void AEnemySpawner::SpawnEnemy()
 
 	if (UntitledGameGameMode && SpawnedEnemy)
 		UntitledGameGameMode->NotifyEnemySpawned();
+}
+
+void AEnemySpawner::StartSpawning(){
+	
+	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemySpawner::SpawnEnemy, SpawnRate, true);
+
+	UntitledGameGameMode = Cast<AUntitledGameGameMode>(UGameplayStatics::GetGameMode(this));
+	if (UntitledGameGameMode == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("EnemySpawner: GameMode not found."));
 }
 
