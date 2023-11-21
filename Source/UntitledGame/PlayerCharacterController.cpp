@@ -23,6 +23,8 @@ const FName APlayerCharacterController::MoveRightBinding("MoveRight");
 
 void APlayerCharacterController::BeginPlay()
 {
+    bEnableClickEvents = true;
+    bEnableMouseOverEvents = true;
     PlayerPawn = GetPawn();
     if (PlayerPawn == nullptr)
         UE_LOG(LogTemp, Error, TEXT("PlayerCharacterController: Player Pawn not found!"));

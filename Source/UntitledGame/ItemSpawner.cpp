@@ -49,11 +49,21 @@ void AItemSpawner::SpawnItem()
         if (SpawnedWeapon)
         {
             UWeaponCore* WeaponCoreComponent = Cast<UWeaponCore>(SpawnedWeapon->GetComponentByClass(UWeaponCore::StaticClass()));
-            if (WeaponCoreComponent)
+            if (WeaponCoreComponent && !RandomizeStats)
             {
+                // Setting static stats if RandomizeStats is false
                 WeaponCoreComponent->FireRate = FireRate;
                 WeaponCoreComponent->ReloadTime = ReloadTime;
                 WeaponCoreComponent->MaxAbilities = MaxAbility;
+            }
+
+            UClass* ActorClass = SpawnedWeapon->GetClass();
+
+            if (UBoolProperty* RandomizeStatsProp = FindField<UBoolProperty>(ActorClass, FName("RandomizeStats")))
+            {
+                UE_LOG(LogTemp, Warning , TEXT("RandomizeStatsProp found"));
+                RandomizeStatsProp->SetPropertyValue_InContainer(SpawnedWeapon, RandomizeStats);
+                OnItemSpawned.Broadcast();
             }
         }
     }
