@@ -17,6 +17,9 @@ class UNTITLEDGAME_API AEnemySpawner : public AActor
 public:
 	AEnemySpawner();
 
+	UFUNCTION(BlueprintCallable)
+	void StartSpawning();
+
 protected:
 	virtual void BeginPlay() override;
 

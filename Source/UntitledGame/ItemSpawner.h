@@ -53,6 +53,9 @@ public:
     UPROPERTY(EditAnywhere, Category = "Blueprints")
     TSubclassOf<AActor> WeaponItemDebugBlueprint;
 
+    UPROPERTY(EditAnywhere, Category = "Respawning")
+    float RespawnTime = 2.0f;
+
 	UFUNCTION(BlueprintCallable)
 	void RespawnItem();
 

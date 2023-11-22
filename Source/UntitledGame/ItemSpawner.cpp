@@ -72,6 +72,6 @@ void AItemSpawner::SpawnItem()
 void AItemSpawner::RespawnItem()
 {
     FTimerHandle UnusedHandle;
-    GetWorld()->GetTimerManager().SetTimer(UnusedHandle, this, &AItemSpawner::SpawnItem, 5.0f, false);
+    GetWorld()->GetTimerManager().SetTimer(UnusedHandle, this, &AItemSpawner::SpawnItem, RespawnTime, false);
 }
 
