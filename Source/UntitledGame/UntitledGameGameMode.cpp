@@ -12,7 +12,7 @@ AUntitledGameGameMode::AUntitledGameGameMode()
 	PlayerControllerClass = APlayerCharacterController::StaticClass();
 
 	// Set default pawn class to custom Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/BP_PlayerCharacterNewAnim"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/BP_PlayerCharacter"));
 	if (PlayerPawnBPClass.Class != nullptr)
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 }
