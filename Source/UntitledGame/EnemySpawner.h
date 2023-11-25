@@ -6,7 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "EnemySpawner.generated.h"
 
-// Regularly spawns Enemies in a random location up to a max number of enemies 
+// Regularly spawns Enemies up to a max number of Enemies
+// Spawns on NavMeshes only when Player is reachable 
 // Notifies GameMode when a new Enemy is spawned 
 
 UCLASS()

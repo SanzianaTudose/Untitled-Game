@@ -46,16 +46,18 @@ void AEnemySpawner::SpawnEnemy()
 	FVector PlayerLocation = UGameplayStatics::GetPlayerCharacter(World, 0)->GetActorLocation();
 
 	bool bFoundPath = NavSystem->GetRandomReachablePointInRadius(PlayerLocation, SpawnRadius, Result);
+	if (!bFoundPath) // Only spawn Enemies when Player is in a reachable position
+		return;
+
 	FVector SpawnLocation = Result.Location;
-
 	AActor* SpawnedEnemy = World->SpawnActor<AEnemyCharacter>(EnemyBP, SpawnLocation, FRotator::ZeroRotator);
-
 	if (UntitledGameGameMode && SpawnedEnemy)
 		UntitledGameGameMode->NotifyEnemySpawned();
 }
 
-void AEnemySpawner::StartSpawning(){
-	
+void AEnemySpawner::StartSpawning()
+{
+
 	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemySpawner::SpawnEnemy, SpawnRate, true);
 
 	UntitledGameGameMode = Cast<AUntitledGameGameMode>(UGameplayStatics::GetGameMode(this));
