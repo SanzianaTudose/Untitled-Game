@@ -77,7 +77,7 @@ void APlayerCharacterController::RotateToCursor()
     float NewYaw = (CursorLocation - CurLocation).Rotation().Yaw;;
     FRotator NewRot = FRotator(CurRot.Pitch, NewYaw, CurRot.Roll);
 
-    SetControlRotation(NewRot);
+    PlayerPawn->SetActorRotation(NewRot);
 }
 
 void APlayerCharacterController::OnFire()

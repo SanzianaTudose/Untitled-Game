@@ -2,7 +2,8 @@
 
 #include "AbilityObjectComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
-
+#include "GameFramework/DamageType.h"
+#include "Kismet/GameplayStatics.h"
 // Sets default values for this component's properties
 UAbilityObjectComponent::UAbilityObjectComponent()
 {
@@ -59,6 +60,19 @@ void UAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick TickType
 void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	UE_LOG(LogTemp, Display, TEXT("Collision detected"));
+
+	auto MyOwner = GetOwner();
+	if (MyOwner == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AUntitledGameProjectile: Owner is null."));
+		return;
+	}
+
+	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
+	auto DamageTypeClass = UDamageType::StaticClass();
+	// Make sure not to damage self or projectile owner
+	if (OtherActor && OtherActor != MyOwner)
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, MyOwner, DamageTypeClass);
 }
 
 void UAbilityObjectComponent::SetData(float d, bool doh, float r)
