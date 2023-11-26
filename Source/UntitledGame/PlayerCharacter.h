@@ -27,6 +27,9 @@ public:
 		return CameraBoom;
 	}
 
+	UPROPERTY(Category = General, EditAnywhere, BlueprintReadWrite)
+	class UPlayerCursorManager* CursorManager;
+
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UWeaponCore* WeaponCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
@@ -36,8 +39,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void PrintCoreStats();
 	void HandleDeath();
-
-	virtual void Tick(float DeltaSeconds) override;
 
 protected:
 	virtual void BeginPlay() override;

@@ -8,6 +8,8 @@
 #include "Camera/CameraComponent.h"
 #include "WeaponCore.h"
 #include "ShootingController.h"
+#include "PlayerCursorManager.h"
+
 DEFINE_LOG_CATEGORY(Player);
 
 // Sets default values
@@ -41,13 +43,13 @@ APlayerCharacter::APlayerCharacter()
 	TopDownCameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	// Activate ticking in order to update the cursor every frame.
-	// TODO: Is this needed (?)
-	PrimaryActorTick.bCanEverTick = true;
-	PrimaryActorTick.bStartWithTickEnabled = true;
+	PrimaryActorTick.bCanEverTick = false;
+
+	CursorManager = CreateDefaultSubobject<UPlayerCursorManager>(TEXT("CursorManager"));
 
 	ShootingController = CreateDefaultSubobject<UShootingController>(TEXT("ShootingController"));
 	ShootingController->OwningActor = this;
+	ShootingController->SetCursorManager(CursorManager);
 }
 
 void APlayerCharacter::BeginPlay()
@@ -56,11 +58,6 @@ void APlayerCharacter::BeginPlay()
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();
-}
-// Called every frame
-void APlayerCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 }
 
 void APlayerCharacter::HandleDeath()

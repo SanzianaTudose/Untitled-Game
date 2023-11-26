@@ -5,26 +5,13 @@
 #include "Components/InputComponent.h"
 #include "Sound/SoundBase.h"
 #include "WeaponCore.h"
-
-#include "DrawDebugHelpers.h"
+#include "PlayerCursorManager.h"
 
 UShootingController::UShootingController()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = false;
 	OwningActor = GetOwner();
 	GunOffset = FVector(90.f, 0.f, 0.f);
-}
-
-void UShootingController::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
-void UShootingController::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 }
 
 void UShootingController::OnFire()
@@ -53,7 +40,7 @@ void UShootingController::OnFire()
 				HitLocation.Z = OwningActorLocation.Z;
 				FireDirection = HitLocation - OwningActorLocation;
 
-				DrawDebugSphere(GetWorld(), HitLocation, 20, 26, FColor(255, 0, 0), true);
+				CursorManager->SpeakValentina();
 			}
 		}
 		const FRotator FireRotation = FireDirection.Rotation();
