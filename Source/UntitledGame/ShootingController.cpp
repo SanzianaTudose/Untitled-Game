@@ -39,8 +39,6 @@ void UShootingController::OnFire()
 				FVector HitLocation = HitResult.Location;
 				HitLocation.Z = OwningActorLocation.Z;
 				FireDirection = HitLocation - OwningActorLocation;
-
-				CursorManager->SpeakValentina();
 			}
 		}
 		const FRotator FireRotation = FireDirection.Rotation();

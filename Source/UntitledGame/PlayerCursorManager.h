@@ -7,7 +7,7 @@
 #include "PlayerCursorManager.generated.h"
 
 
-/*  
+/*
    Holds information about the cursor location
    Shows cursor decal if enabled
 
@@ -23,10 +23,15 @@ public:
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	// FORCEINLINE class UDecalComponent* GetCursorToWorld() {}
-
-	FORCEINLINE void SpeakValentina() { UE_LOG(LogTemp, Error, TEXT("! ally !")); }
+	FORCEINLINE class UDecalComponent* GetCursorToWorld()
+	{
+		return CursorToWorld;
+	}
 
 protected:
-	virtual void BeginPlay() override;
+	/** A decal that projects to the cursor location. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UDecalComponent* CursorToWorld;
+
+	void MoveCursor();
 };
