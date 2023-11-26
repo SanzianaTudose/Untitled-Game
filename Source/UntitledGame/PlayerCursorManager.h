@@ -13,6 +13,9 @@
 
    Attached to the Player Blueprint
 */
+
+// TODO: Add option to toggle visibility of decal
+
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class UNTITLEDGAME_API UPlayerCursorManager : public UActorComponent
 {
