@@ -6,6 +6,8 @@
 #include "Sound/SoundBase.h"
 #include "WeaponCore.h"
 
+#include "DrawDebugHelpers.h"
+
 UShootingController::UShootingController()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
@@ -41,8 +43,8 @@ void UShootingController::OnFire()
 		if (PlayerController)
 		{
 			FHitResult HitResult;
-			ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
-			bool bHit = PlayerController->GetHitResultUnderCursorByChannel(TraceType, true, HitResult);
+			// ETraceTypeQuery TraceType = UEngineTypes::ConvertToTraceType(ECC_Visibility);
+			bool bHit = PlayerController->GetHitResultUnderCursor(ECC_Visibility, true, HitResult);
 
 			if (bHit)
 			{
@@ -50,6 +52,8 @@ void UShootingController::OnFire()
 				FVector HitLocation = HitResult.Location;
 				HitLocation.Z = OwningActorLocation.Z;
 				FireDirection = HitLocation - OwningActorLocation;
+
+				DrawDebugSphere(GetWorld(), HitLocation, 20, 26, FColor(255, 0, 0), true);
 			}
 		}
 		const FRotator FireRotation = FireDirection.Rotation();
