@@ -24,6 +24,8 @@ void UPlayerCursorManager::TickComponent(float DeltaTime, ELevelTick TickType, F
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	CursorToWorld->SetVisibility(bDecalEnabled);
+
 	MoveCursor();
 }
 

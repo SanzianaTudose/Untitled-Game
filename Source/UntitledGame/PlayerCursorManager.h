@@ -14,8 +14,6 @@
    Attached to the Player Blueprint
 */
 
-// TODO: Add option to toggle visibility of decal
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class UNTITLEDGAME_API UPlayerCursorManager : public UActorComponent
 {
@@ -31,10 +29,13 @@ public:
 		return CursorToWorld;
 	}
 
-protected:
-	/** A decal that projects to the cursor location. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UDecalComponent* CursorToWorld;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (AllowPrivateAccess = "true"))
+	bool bDecalEnabled = true;
 
+protected:
 	void MoveCursor();
+
+	/** A decal that projects to the cursor location. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UDecalComponent* CursorToWorld;
 };
