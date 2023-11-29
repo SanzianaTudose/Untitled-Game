@@ -31,7 +31,7 @@ public:
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 	UPROPERTY(EditAnywhere)
-	float Damage = 10;
+	float Damage = 50;
 	//will determine if the ability object will be able to hit more than one enemy
 	UPROPERTY(EditAnywhere)
 	bool bDestroyOnHit = true;

@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "AbilityObjectComponent.h"
+#include "ElementInteractionManager.h"
+#include "EnemyCharacter.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/DamageType.h"
 #include "Kismet/GameplayStatics.h"
@@ -73,6 +75,13 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	// Make sure not to damage self or projectile owner
 	if (OtherActor && OtherActor != MyOwner)
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, MyOwner, DamageTypeClass);
+
+	AEnemyCharacter* enemy = (AEnemyCharacter*) OtherActor;
+	if(enemy)
+	{
+		AElementInteractionManager::AbilityEnemyInteract(Element, enemy->Status, SweepResult.ImpactPoint, OtherActor);
+		enemy->UpdateStatus(Element);
+	}
 }
 
 void UAbilityObjectComponent::SetData(float d, bool doh, float r)

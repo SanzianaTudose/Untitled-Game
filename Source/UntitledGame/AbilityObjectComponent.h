@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "ElementInteractionManager.h"
 #include "AbilityObjectComponent.generated.h"
 
 
@@ -15,7 +16,7 @@ class UNTITLEDGAME_API UAbilityObjectComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UAbilityObjectComponent();
-
+	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -25,7 +26,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	//the element type of this object
-	//Element
+	UPROPERTY(EditAnywhere)
+	EElement Element;
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 
