@@ -37,5 +37,5 @@ protected:
 
 	/** A decal that projects to the cursor location. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	class UDecalComponent* CursorToWorld;
+	class UDecalComponent* CursorToWorld = nullptr;
 };
