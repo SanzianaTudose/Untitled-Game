@@ -76,7 +76,7 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	if (OtherActor && OtherActor != MyOwner)
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, MyOwner, DamageTypeClass);
 
-	AEnemyCharacter* enemy = (AEnemyCharacter*) OtherActor;
+	AEnemyCharacter* enemy = dynamic_cast<AEnemyCharacter*>(OtherActor);
 	if(enemy)
 	{
 		AElementInteractionManager::AbilityEnemyInteract(Element, enemy->Status, SweepResult.ImpactPoint, OtherActor);

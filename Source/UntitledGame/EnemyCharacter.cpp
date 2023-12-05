@@ -47,9 +47,12 @@ void AEnemyCharacter::UpdateStatus(EElement otherElement)
 			break;
 		case EElement::Slime:
 			Status = EStatus::SlimeCovered;
+			break;
 		default:
 			Status = EStatus::None;
 			break;
 	}
+
+	AEnemyCharacter::UpdateStatusMaterial();
 }
 

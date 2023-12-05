@@ -19,10 +19,13 @@ public:
 
 	void HandleDeath();
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	EStatus Status;
 
 	void UpdateStatus(EElement status);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateStatusMaterial();
 protected:
 	virtual void BeginPlay() override;
 
