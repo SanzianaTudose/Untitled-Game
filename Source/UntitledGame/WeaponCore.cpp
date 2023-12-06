@@ -13,7 +13,10 @@ UWeaponCore::UWeaponCore()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-
+	// TODO: DELETE!
+	ConstructorHelpers::FObjectFinder<UComponent> test(TEXT("Component'/Game/DataAssets/DA_TestComponent.DA_TestComponent'"));
+	if (test.Succeeded())
+		TestComponent = test.Object;
 }
 
 void UWeaponCore::BeginPlay()
@@ -35,9 +38,11 @@ void UWeaponCore::GenerateStats(int level)
 	Stats[WeaponStat::FireRate] = dis(gen);
 	std::uniform_real_distribution<> dis2(0.5f, 1.0f);
 	Stats[WeaponStat::ReloadTime] = dis2(gen);
+
+	AddComponent(TestComponent);
 }
 
-
+#pragma region Abilities
 void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
 {
 	AbilitiesClasses.Add(AbilityClass);
@@ -83,13 +88,42 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 		GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
 	}
 }
+#pragma endregion Abilities
 
 void UWeaponCore::ShotTimerExpired()
 {
 	bCanFire = true;
 }
 
+#pragma region Components
 
+void UWeaponCore::AddComponent(UComponent* Component)
+{
+	if (!Component) return;
+
+	if (Components.Contains(Component))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WeaponCore: Component cannot be added twice!"));
+		return;
+	}
+
+	ApplyComponentModifiers(Component, true);
+	Components.Add(Component);
+}
+
+void UWeaponCore::RemoveComponent(UComponent* Component)
+{
+
+}
+
+void UWeaponCore::ApplyComponentModifiers(UComponent* Component, bool isAdded)
+{
+	float Sign = (isAdded ? 1 : -1);
+	for (TPair<WeaponStat, float> Modifier : Component->Modifiers)
+		Stats.Emplace(Modifier.Key, Stats[Modifier.Key] + Sign * Modifier.Value);
+}
+
+#pragma region Components
 
 
 void UWeaponCore::DecrementReloadTime()

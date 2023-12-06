@@ -30,21 +30,34 @@ public:
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float CurrentReloadTimeLeft;
 	bool bCanFire;
-
+#pragma region Abilities
 	UFUNCTION(BlueprintCallable)
 	void GenerateStats(int level);
 	UFUNCTION(BlueprintCallable)
 	void AddAbility(TSubclassOf<AActor> AbilityClass);
 	void RemoveAbility(AUntitledGameProjectile* Ability);
 	void ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation, AActor* OwningActor);
+#pragma endregion Abilities
+
 	void ShotTimerExpired();
 
+#pragma region Components
+	UComponent* TestComponent = nullptr;
+	void AddComponent(UComponent* Component);
+	void RemoveComponent(UComponent* Component);
+
+	// Updates current WeaponCore stats. {isAdded} - indicates if the Component modifiers should be added or removed
+	void ApplyComponentModifiers(UComponent* Component, bool isAdded);
+#pragma endregion Components
 
 private:
 	int PlayerLevel;
 	int AbilityIndex;
 	TArray<TSubclassOf<AActor>> AbilitiesClasses;
 	FTimerHandle TimerHandle_ReloadTimeDecrement;
+
+	UPROPERTY(Category = WeaponSystem, VisibleAnywhere)
+	TSet<UComponent*> Components;
 
 	void DecrementReloadTime();
 protected:
