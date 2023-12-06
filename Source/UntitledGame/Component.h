@@ -14,18 +14,6 @@ enum class WeaponStat : uint8
 	ReloadTime
 };
 
-USTRUCT(BlueprintType)
-struct FStatModifier
-{
-	GENERATED_USTRUCT_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	WeaponStat Stat;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float Modifier;
-};
-
 /**
  *  Holds information about a generic component and the stats it modifies.
  */
@@ -39,5 +27,5 @@ public:
 	FString Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TArray<FStatModifier> Modifiers;
+	TMap<WeaponStat, float> Modifiers;
 };

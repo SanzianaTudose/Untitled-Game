@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "UntitledGameProjectile.h"
 #include "Blueprint/UserWidget.h"
+#include "Component.h"
+
 #include "WeaponCore.generated.h"
 
 
@@ -18,12 +20,16 @@ public:
 	// Sets default values for this component's properties
 	UWeaponCore();
 
+	// UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
+	// TArray<FStatValue> Stats;
+
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	int MaxAbilities;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float FireRate;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float ReloadTime;
+
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float CurrentReloadTimeLeft;
 	bool bCanFire;
