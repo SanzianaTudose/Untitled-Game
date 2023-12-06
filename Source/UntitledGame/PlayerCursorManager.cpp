@@ -18,13 +18,14 @@ UPlayerCursorManager::UPlayerCursorManager()
 	}
 	CursorToWorld->DecalSize = FVector(16.0f, 32.0f, 32.0f);
 	CursorToWorld->SetRelativeRotation(FRotator(90.0f, 0.0f, 0.0f).Quaternion());
+	CursorToWorld->RegisterComponent();
 }
 
 void UPlayerCursorManager::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	CursorToWorld->SetVisibility(bDecalEnabled);
+	if (CursorToWorld) CursorToWorld->SetVisibility(bDecalEnabled);
 
 	MoveCursor();
 }

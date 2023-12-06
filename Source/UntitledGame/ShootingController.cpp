@@ -25,7 +25,10 @@ void UShootingController::OnFire()
 	// If it's ok to fire again
 	if (WeaponCore != nullptr && WeaponCore->bCanFire)
 	{
-		FVector CursorLocation = CursorManager->GetCursorToWorld()->GetComponentLocation();
+		auto CursorToWorld = CursorManager->GetCursorToWorld();
+		if (!CursorToWorld) return;
+
+		FVector CursorLocation = CursorToWorld->GetComponentLocation();
 		CursorLocation.Z = OwningActorLocation.Z;
 		FVector FireDirection = CursorLocation - OwningActorLocation;;
 		const FRotator FireRotation = FireDirection.Rotation();
