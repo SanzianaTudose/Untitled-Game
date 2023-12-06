@@ -12,11 +12,6 @@ UWeaponCore::UWeaponCore()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// TODO: DELETE!
-	ConstructorHelpers::FObjectFinder<UComponent> test(TEXT("Component'/Game/DataAssets/DA_TestComponent.DA_TestComponent'"));
-	if (test.Succeeded())
-		TestComponent = test.Object;
 }
 
 void UWeaponCore::BeginPlay()
@@ -38,8 +33,6 @@ void UWeaponCore::GenerateStats(int level)
 	Stats[WeaponStat::FireRate] = dis(gen);
 	std::uniform_real_distribution<> dis2(0.5f, 1.0f);
 	Stats[WeaponStat::ReloadTime] = dis2(gen);
-
-	AddComponent(TestComponent);
 }
 
 #pragma region Abilities
@@ -111,9 +104,19 @@ void UWeaponCore::AddComponent(UComponent* Component)
 	Components.Add(Component);
 }
 
+// TODO: TEST THIS METHOD!
 void UWeaponCore::RemoveComponent(UComponent* Component)
 {
+	if (!Component) return;
 
+	if (!Components.Contains(Component))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WeaponCore: Cannot remove Component that has not been already added!"));
+		return;
+	}
+
+	ApplyComponentModifiers(Component, false);
+	Components.Remove(Component);
 }
 
 void UWeaponCore::ApplyComponentModifiers(UComponent* Component, bool isAdded)

@@ -61,11 +61,15 @@ void AItemSpawner::SpawnItem()
 
             if (UBoolProperty* RandomizeStatsProp = FindField<UBoolProperty>(ActorClass, FName("RandomizeStats")))
             {
-                UE_LOG(LogTemp, Warning, TEXT("RandomizeStatsProp found"));
                 RandomizeStatsProp->SetPropertyValue_InContainer(SpawnedWeapon, RandomizeStats);
                 OnItemSpawned.Broadcast();
             }
         }
+    }
+    else if (ItemType == ItemType::Component && ComponentItemBlueprint)
+    {
+        AActor* SpawnedComponent = GetWorld()->SpawnActor<AActor>(ComponentItemBlueprint, Location, Rotation, SpawnParams);
+        SpawnedComponent->SetOwner(this);
     }
 }
 

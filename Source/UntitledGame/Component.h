@@ -9,7 +9,7 @@
 UENUM(BlueprintType)
 enum class WeaponStat : uint8
 {
-	MaxAbilities, 
+	MaxAbilities,
 	FireRate,
 	ReloadTime
 };
@@ -17,7 +17,7 @@ enum class WeaponStat : uint8
 /**
  *  Holds information about a generic component and the stats it modifies.
  */
-UCLASS()
+UCLASS(BlueprintType)
 class UNTITLEDGAME_API UComponent : public UDataAsset
 {
 	GENERATED_BODY()

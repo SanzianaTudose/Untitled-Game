@@ -42,7 +42,7 @@ public:
 	void ShotTimerExpired();
 
 #pragma region Components
-	UComponent* TestComponent = nullptr;
+	UFUNCTION(BlueprintCallable)
 	void AddComponent(UComponent* Component);
 	void RemoveComponent(UComponent* Component);
 
