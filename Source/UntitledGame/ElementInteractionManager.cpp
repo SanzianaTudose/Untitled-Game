@@ -33,6 +33,7 @@ void AElementInteractionManager::AbilityEnemyInteract(EElement ability, EStatus 
 	|| (ability == EElement::Slime && enemy == EStatus::OnFire))
 	{
 		UE_LOG(LogTemp, Display, TEXT("KABOOM"));
+		GetWorld()->SpawnActor<AActor>(SlimeExplosion, location, other->GetActorRotation());
 		//AActor* actor = other->GetWorld()->SpawnActor<AActor>(SlimeExplosion, location, other->GetActorRotation());
 		
 	}

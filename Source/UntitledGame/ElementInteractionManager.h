@@ -41,10 +41,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	static void AbilityEnemyInteract(EElement ability, EStatus enemy, FVector locationv, AActor* other);
+	void AbilityEnemyInteract(EElement ability, EStatus enemy, FVector locationv, AActor* other);
 	
-	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Asset References")
-	//static TSubclassOf<AActor> SlimeExplosion;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> SlimeExplosion;
 	
 	
 };

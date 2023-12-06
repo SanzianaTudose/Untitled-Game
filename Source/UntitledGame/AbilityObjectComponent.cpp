@@ -79,12 +79,12 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	AEnemyCharacter* enemy = dynamic_cast<AEnemyCharacter*>(OtherActor);
 	if(enemy)
 	{
-		AElementInteractionManager::AbilityEnemyInteract(Element, enemy->Status, SweepResult.ImpactPoint, OtherActor);
+		EIM->AbilityEnemyInteract(Element, enemy->Status, SweepResult.ImpactPoint, OtherActor);
 		enemy->UpdateStatus(Element);
 	}
 }
 
-void UAbilityObjectComponent::SetData(float d, bool doh, float r)
+void UAbilityObjectComponent::SetData(float d, bool doh, float r, AElementInteractionManager* e)
 {
 	//set all the needed variables
 	//element
@@ -92,4 +92,5 @@ void UAbilityObjectComponent::SetData(float d, bool doh, float r)
 	Damage = d;
 	bDestroyOnHit = doh;
 	Range = r;
+	EIM = e;
 }

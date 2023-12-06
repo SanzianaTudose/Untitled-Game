@@ -24,7 +24,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	
+	AElementInteractionManager* EIM;
 	//the element type of this object
 	UPROPERTY(EditAnywhere)
 	EElement Element;
@@ -37,7 +38,7 @@ public:
 	float Range;
 	FVector InitialPosition;
 
-	void SetData(/*Element, Effect[]*/ float d, bool doh, float r);
+	void SetData(/*Element, Effect[]*/ float d, bool doh, float r, AElementInteractionManager* e);
 
 	UFUNCTION()
 	void OnEnemyHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
