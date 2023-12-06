@@ -9,7 +9,7 @@
 UENUM(BlueprintType)
 enum class WeaponStat : uint8
 {
-	MaxAbilities,
+	MaxAbilities, 
 	FireRate,
 	ReloadTime
 };

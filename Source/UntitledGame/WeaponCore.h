@@ -20,15 +20,12 @@ public:
 	// Sets default values for this component's properties
 	UWeaponCore();
 
-	// UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
-	// TArray<FStatValue> Stats;
-
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
-	int MaxAbilities;
-	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
-	float FireRate;
-	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
-	float ReloadTime;
+	TMap<WeaponStat, float> Stats{
+		{WeaponStat::MaxAbilities, 0.0f}, // Should be an integer!
+		{WeaponStat::FireRate, 0.0f},
+		{WeaponStat::ReloadTime, 0.0f}
+	};
 
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	float CurrentReloadTimeLeft;
