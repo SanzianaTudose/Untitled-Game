@@ -72,9 +72,9 @@ void APlayerCharacter::OnFire()
 
 void APlayerCharacter::PrintCoreStats()
 {
-	UE_LOG(Player, Warning, TEXT("MaxAbilities: %d\n"), WeaponCore->MaxAbilities);
-	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->FireRate);
-	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->ReloadTime);
+	UE_LOG(Player, Warning, TEXT("MaxAbilities: %f\n"), WeaponCore->Stats[WeaponStat::MaxAbilities]);
+	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->Stats[WeaponStat::FireRate]);
+	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->Stats[WeaponStat::ReloadTime]);
 }
 
 
