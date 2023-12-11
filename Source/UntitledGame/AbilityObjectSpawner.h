@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ElementInteractionManager.h"
 #include "GameFramework/Actor.h"
 #include "AbilityObjectSpawner.generated.h"
 
@@ -22,16 +23,19 @@ protected:
 	UFUNCTION()
 	void SpawnObjects();
 
+	void FindInteractionManager();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
+	UPROPERTY(EditAnywhere)
+	AElementInteractionManager* EIM;
 	//the element type of this object
 	//Element
 	//list of effects to apply to an enemy that this object hits
 	//Effect[] 
 	UPROPERTY(EditAnywhere)
-	float Damage = 10;
+	float Damage = 50;
 	//will determine if the ability object will be able to hit more than one enemy
 	UPROPERTY(EditAnywhere)
 	bool bDestroyOnHit = true;

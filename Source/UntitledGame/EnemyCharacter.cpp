@@ -2,6 +2,7 @@
 
 
 #include "EnemyCharacter.h"
+#include "ElementInteractionManager.h"
 #include "Components/CapsuleComponent.h"
 #include "UntitledGameProjectile.h"
 
@@ -35,5 +36,23 @@ void AEnemyCharacter::Attack()
 void AEnemyCharacter::HandleDeath()
 {
 	Destroy();
+}
+
+void AEnemyCharacter::UpdateStatus(EElement otherElement)
+{
+	switch(otherElement)
+	{
+		case EElement::Fire:
+			Status = EStatus::OnFire;
+			break;
+		case EElement::Slime:
+			Status = EStatus::SlimeCovered;
+			break;
+		default:
+			Status = EStatus::None;
+			break;
+	}
+
+	AEnemyCharacter::UpdateStatusMaterial();
 }
 

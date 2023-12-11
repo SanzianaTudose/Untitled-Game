@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "ElementInteractionManager.h"
 #include "EnemyCharacter.generated.h"
 
 UCLASS()
@@ -18,10 +19,19 @@ public:
 
 	void HandleDeath();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	EStatus Status;
+
+	void UpdateStatus(EElement status);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateStatusMaterial();
 protected:
 	virtual void BeginPlay() override;
 
 private:
 	UPROPERTY(EditAnywhere)
 	FVector ProjectileOffset = FVector(90.f, 0.f, 0.f);
+
+	
 };
