@@ -3,6 +3,7 @@
 
 #include "AbilityObjectSpawner.h"
 #include "AbilityObjectComponent.h"
+#include "Kismet/GameplayStatics.h"
 // Sets default values
 AAbilityObjectSpawner::AAbilityObjectSpawner()
 {
@@ -15,8 +16,9 @@ AAbilityObjectSpawner::AAbilityObjectSpawner()
 void AAbilityObjectSpawner::BeginPlay()
 {
 	Super::BeginPlay();
+	FindInteractionManager();
 	SpawnObjects();
-	
+	//Destroy();
 }
 
 // Called every frame
@@ -25,6 +27,17 @@ void AAbilityObjectSpawner::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
+void AAbilityObjectSpawner::FindInteractionManager()
+{
+	AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), AElementInteractionManager::StaticClass());
+	EIM = Cast<AElementInteractionManager>(FoundActor);
+
+	if(!EIM)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Element Interaction Manager not found"));
+	}
+} 
 
 void AAbilityObjectSpawner::SpawnObjects()
 {
@@ -40,7 +53,7 @@ void AAbilityObjectSpawner::SpawnObjects()
 			if(obj)
 			{
 				//give it the needed stats
-				obj->SetData(Damage, bDestroyOnHit, Range);
+				obj->SetData(Damage, bDestroyOnHit, Range, EIM);
 			}
 		}
 	}

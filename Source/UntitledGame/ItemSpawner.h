@@ -13,7 +13,8 @@ UENUM(BlueprintType)
 enum class ItemType : uint8
 {
     WeaponCore UMETA(DisplayName = "WeaponCore"),
-    Ability UMETA(DisplayName = "Ability")
+    Ability UMETA(DisplayName = "Ability"),
+    Component UMETA(DisplayName = "Component")
 };
 
 UCLASS()
@@ -21,7 +22,7 @@ class UNTITLEDGAME_API AItemSpawner : public AActor
 {
     GENERATED_BODY()
 
-public:	
+public:
     // Sets default values for this actor's properties
     AItemSpawner();
 
@@ -47,23 +48,26 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSpawning", meta = (EditCondition = "ItemType == ItemType::Ability"))
     TSubclassOf<AActor> AbilityType;
 
-	UPROPERTY(EditAnywhere, Category = "Blueprints")
+    UPROPERTY(EditAnywhere, Category = "Blueprints")
     TSubclassOf<AActor> AbilityItemBlueprint;
 
     UPROPERTY(EditAnywhere, Category = "Blueprints")
     TSubclassOf<AActor> WeaponItemDebugBlueprint;
 
+    UPROPERTY(EditAnywhere, Category = "Blueprints")
+    TSubclassOf<AActor> ComponentItemBlueprint;
+
     UPROPERTY(EditAnywhere, Category = "Respawning")
     float RespawnTime = 2.0f;
 
-	UFUNCTION(BlueprintCallable)
-	void RespawnItem();
+    UFUNCTION(BlueprintCallable)
+    void RespawnItem();
 
 protected:
     // Called when the game starts or when spawned
     virtual void BeginPlay() override;
-	void SpawnItem();
+    void SpawnItem();
 
-public:	
+public:
 
 };

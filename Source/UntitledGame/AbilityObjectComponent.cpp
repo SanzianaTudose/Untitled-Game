@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "AbilityObjectComponent.h"
+#include "ElementInteractionManager.h"
+#include "EnemyCharacter.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/DamageType.h"
 #include "Kismet/GameplayStatics.h"
@@ -73,9 +75,16 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 	// Make sure not to damage self or projectile owner
 	if (OtherActor && OtherActor != MyOwner)
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, MyOwner, DamageTypeClass);
+
+	AEnemyCharacter* enemy = dynamic_cast<AEnemyCharacter*>(OtherActor);
+	if(enemy)
+	{
+		EIM->AbilityEnemyInteract(Element, enemy->Status, SweepResult.ImpactPoint, OtherActor);
+		enemy->UpdateStatus(Element);
+	}
 }
 
-void UAbilityObjectComponent::SetData(float d, bool doh, float r)
+void UAbilityObjectComponent::SetData(float d, bool doh, float r, AElementInteractionManager* e)
 {
 	//set all the needed variables
 	//element
@@ -83,4 +92,5 @@ void UAbilityObjectComponent::SetData(float d, bool doh, float r)
 	Damage = d;
 	bDestroyOnHit = doh;
 	Range = r;
+	EIM = e;
 }

@@ -14,13 +14,13 @@ AItemSpawner::AItemSpawner()
 void AItemSpawner::BeginPlay()
 {
     Super::BeginPlay();
-	SpawnItem();
+    SpawnItem();
 
 }
 
 void AItemSpawner::SpawnItem()
 {
-	FActorSpawnParameters SpawnParams;
+    FActorSpawnParameters SpawnParams;
     SpawnParams.Owner = this;
     SpawnParams.Instigator = GetInstigator();
 
@@ -28,44 +28,48 @@ void AItemSpawner::SpawnItem()
     FRotator Rotation = GetActorRotation();
 
     if (ItemType == ItemType::Ability && AbilityItemBlueprint)
-	{
-		AActor* SpawnedAbility = GetWorld()->SpawnActor<AActor>(AbilityItemBlueprint, Location, Rotation, SpawnParams);
-		SpawnedAbility->SetOwner(this);
-		if (SpawnedAbility)
-		{
-			UClass* ActorClass = SpawnedAbility->GetClass();
+    {
+        AActor* SpawnedAbility = GetWorld()->SpawnActor<AActor>(AbilityItemBlueprint, Location, Rotation, SpawnParams);
+        SpawnedAbility->SetOwner(this);
+        if (SpawnedAbility)
+        {
+            UClass* ActorClass = SpawnedAbility->GetClass();
 
-			if (UObjectProperty* AbilityClassProp = FindField<UObjectProperty>(ActorClass, FName("AbilityClass")))
-			{
-				AActor* CurrentAbilityClassValue = Cast<AActor>(AbilityClassProp->GetObjectPropertyValue_InContainer(SpawnedAbility));
-				AbilityClassProp->SetObjectPropertyValue_InContainer(SpawnedAbility, AbilityType);
-			}
-		}
-	}
+            if (UObjectProperty* AbilityClassProp = FindField<UObjectProperty>(ActorClass, FName("AbilityClass")))
+            {
+                AActor* CurrentAbilityClassValue = Cast<AActor>(AbilityClassProp->GetObjectPropertyValue_InContainer(SpawnedAbility));
+                AbilityClassProp->SetObjectPropertyValue_InContainer(SpawnedAbility, AbilityType);
+            }
+        }
+    }
     else if (ItemType == ItemType::WeaponCore && WeaponItemDebugBlueprint)
     {
         AActor* SpawnedWeapon = GetWorld()->SpawnActor<AActor>(WeaponItemDebugBlueprint, Location, Rotation, SpawnParams);
-		SpawnedWeapon->SetOwner(this);
+        SpawnedWeapon->SetOwner(this);
         if (SpawnedWeapon)
         {
             UWeaponCore* WeaponCoreComponent = Cast<UWeaponCore>(SpawnedWeapon->GetComponentByClass(UWeaponCore::StaticClass()));
             if (WeaponCoreComponent && !RandomizeStats)
             {
                 // Setting static stats if RandomizeStats is false
-                WeaponCoreComponent->FireRate = FireRate;
-                WeaponCoreComponent->ReloadTime = ReloadTime;
-                WeaponCoreComponent->MaxAbilities = MaxAbility;
+                WeaponCoreComponent->Stats[WeaponStat::FireRate] = FireRate;
+                WeaponCoreComponent->Stats[WeaponStat::ReloadTime] = ReloadTime;
+                WeaponCoreComponent->Stats[WeaponStat::MaxAbilities] = MaxAbility;
             }
 
             UClass* ActorClass = SpawnedWeapon->GetClass();
 
             if (UBoolProperty* RandomizeStatsProp = FindField<UBoolProperty>(ActorClass, FName("RandomizeStats")))
             {
-                UE_LOG(LogTemp, Warning , TEXT("RandomizeStatsProp found"));
                 RandomizeStatsProp->SetPropertyValue_InContainer(SpawnedWeapon, RandomizeStats);
                 OnItemSpawned.Broadcast();
             }
         }
+    }
+    else if (ItemType == ItemType::Component && ComponentItemBlueprint)
+    {
+        AActor* SpawnedComponent = GetWorld()->SpawnActor<AActor>(ComponentItemBlueprint, Location, Rotation, SpawnParams);
+        SpawnedComponent->SetOwner(this);
     }
 }
 

@@ -12,8 +12,6 @@ UWeaponCore::UWeaponCore()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-
 }
 
 void UWeaponCore::BeginPlay()
@@ -29,20 +27,21 @@ void UWeaponCore::GenerateStats(int level)
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	MaxAbilities = 1;
+
+	Stats[WeaponStat::MaxAbilities] = 1.0f;
 	std::uniform_real_distribution<> dis(0.25f, 0.75f);
-	FireRate = dis(gen);
+	Stats[WeaponStat::FireRate] = dis(gen);
 	std::uniform_real_distribution<> dis2(0.5f, 1.0f);
-	ReloadTime = dis2(gen);
+	Stats[WeaponStat::ReloadTime] = dis2(gen);
 }
 
-
+#pragma region Abilities
 void UWeaponCore::AddAbility(TSubclassOf<AActor> AbilityClass)
 {
 	AbilitiesClasses.Add(AbilityClass);
 
 	// Remove first item if array is too big TODO: make this behavior clear to the Player, maybe call RemoveAbility() ?
-	if (AbilitiesClasses.Num() > MaxAbilities)
+	if (AbilitiesClasses.Num() > Stats[WeaponStat::MaxAbilities])
 	{
 		AbilitiesClasses.RemoveAt(0, 1, true);
 	}
@@ -65,41 +64,80 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 	bCanFire = false;
 
 	FTimerHandle TimerHandle_ShotTimerExpired;
-	float TimerDuration = (AbilityIndex == AbilitiesClasses.Num() - 1) ? ReloadTime : FireRate;
+	float TimerDuration = (AbilityIndex == AbilitiesClasses.Num() - 1) ? Stats[WeaponStat::ReloadTime] : Stats[WeaponStat::FireRate];
 
 	World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &UWeaponCore::ShotTimerExpired, TimerDuration);
 
 	AbilityIndex++;
 	AbilityIndex = AbilityIndex % AbilitiesClasses.Num();
-    if(AbilityIndex == AbilitiesClasses.Num() - 1)
-    {
-        CurrentReloadTimeLeft = ReloadTime;
-        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
-    }
-    else
-    {
-        CurrentReloadTimeLeft = FireRate;
-        GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
-    }
+	if (AbilityIndex == AbilitiesClasses.Num() - 1)
+	{
+		CurrentReloadTimeLeft = Stats[WeaponStat::FireRate];
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+	}
+	else
+	{
+		CurrentReloadTimeLeft = Stats[WeaponStat::FireRate];
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle_ReloadTimeDecrement, this, &UWeaponCore::DecrementReloadTime, 0.1f, true);
+	}
 }
+#pragma endregion Abilities
 
 void UWeaponCore::ShotTimerExpired()
 {
 	bCanFire = true;
 }
 
+#pragma region Components
 
+void UWeaponCore::AddComponent(UComponent* Component)
+{
+	if (!Component) return;
+
+	if (Components.Contains(Component))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WeaponCore: Component cannot be added twice!"));
+		return;
+	}
+
+	ApplyComponentModifiers(Component, true);
+	Components.Add(Component);
+}
+
+// TODO: TEST THIS METHOD!
+void UWeaponCore::RemoveComponent(UComponent* Component)
+{
+	if (!Component) return;
+
+	if (!Components.Contains(Component))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WeaponCore: Cannot remove Component that has not been already added!"));
+		return;
+	}
+
+	ApplyComponentModifiers(Component, false);
+	Components.Remove(Component);
+}
+
+void UWeaponCore::ApplyComponentModifiers(UComponent* Component, bool isAdded)
+{
+	float Sign = (isAdded ? 1 : -1);
+	for (TPair<WeaponStat, float> Modifier : Component->Modifiers)
+		Stats.Emplace(Modifier.Key, Stats[Modifier.Key] + Sign * Modifier.Value);
+}
+
+#pragma region Components
 
 
 void UWeaponCore::DecrementReloadTime()
 {
-    CurrentReloadTimeLeft -= 0.1; // Decrement the time by the frame time.
+	CurrentReloadTimeLeft -= 0.1; // Decrement the time by the frame time.
 
 
-    // If the reload time has expired, stop updating.
-    if(CurrentReloadTimeLeft <= 0.0f)
-    {
-        GetWorld()->GetTimerManager().ClearTimer(TimerHandle_ReloadTimeDecrement);
-        ShotTimerExpired();
-    }
+	// If the reload time has expired, stop updating.
+	if (CurrentReloadTimeLeft <= 0.0f)
+	{
+		GetWorld()->GetTimerManager().ClearTimer(TimerHandle_ReloadTimeDecrement);
+		ShotTimerExpired();
+	}
 }
