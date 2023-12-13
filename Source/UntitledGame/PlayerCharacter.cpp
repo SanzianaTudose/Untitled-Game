@@ -56,8 +56,19 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	CharacterMovement = GetCharacterMovement();
+	if (!CharacterMovement)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: CharacterMovement component not found!"));
+
 	ArmorCore = Cast<UArmorCore>(GetComponentByClass(UArmorCore::StaticClass()));
+	if (!ArmorCore)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: ArmorCore component not found!"));
+	ApplyArmorStats();
+
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	if (!WeaponCore)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: WeaponCore component not found!"));
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();
 }
@@ -77,6 +88,15 @@ void APlayerCharacter::PrintCoreStats()
 	UE_LOG(Player, Warning, TEXT("MaxAbilities: %f\n"), WeaponCore->Stats[WeaponStat::MaxAbilities]);
 	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->Stats[WeaponStat::FireRate]);
 	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->Stats[WeaponStat::ReloadTime]);
+}
+
+void APlayerCharacter::ApplyArmorStats()
+{
+	// TODO: Apply Health changes
+
+	// Apply MovementSpeed changes
+	if (CharacterMovement && ArmorCore)
+		CharacterMovement->MaxWalkSpeed = ArmorCore->Stats[ArmorStat::MovementSpeed];
 }
 
 

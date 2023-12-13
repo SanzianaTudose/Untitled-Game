@@ -37,7 +37,7 @@ public:
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UShootingController* ShootingController;
 
-
+	UCharacterMovementComponent* CharacterMovement;
 
 	void OnFire();
 	UFUNCTION(BlueprintCallable)
@@ -55,4 +55,7 @@ private:
 	/** Camera boom positioning the camera above the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
+	// Change Player properties based on {ArmorCore} stats
+	void ApplyArmorStats();
 };
