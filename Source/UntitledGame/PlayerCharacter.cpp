@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "WeaponCore.h"
+#include "ArmorCore.h"
 #include "ShootingController.h"
 #include "PlayerCursorManager.h"
 
@@ -55,6 +56,7 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	ArmorCore = Cast<UArmorCore>(GetComponentByClass(UArmorCore::StaticClass()));
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();

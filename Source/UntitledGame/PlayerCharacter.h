@@ -30,10 +30,14 @@ public:
 	UPROPERTY(Category = General, EditAnywhere, BlueprintReadWrite)
 	class UPlayerCursorManager* CursorManager;
 
+	UPROPERTY(Category = ArmorSystem, EditAnywhere, BlueprintReadWrite)
+	class UArmorCore* ArmorCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UWeaponCore* WeaponCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UShootingController* ShootingController;
+
+
 
 	void OnFire();
 	UFUNCTION(BlueprintCallable)
