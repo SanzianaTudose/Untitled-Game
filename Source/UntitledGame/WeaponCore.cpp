@@ -60,7 +60,7 @@ void UWeaponCore::ActivateAbitlity(FVector SpawnLocation, FRotator SpawnRotation
 	if (!World) return; // Make sure GetWorld() doesn't return nullptr.
 
 	AActor* NewProjectile = World->SpawnActor<AActor>(AbilitiesClasses[AbilityIndex], SpawnLocation, SpawnRotation);
-	NewProjectile->SetOwner(OwningActor);
+	//NewProjectile->SetOwner(OwningActor);
 	bCanFire = false;
 
 	FTimerHandle TimerHandle_ShotTimerExpired;

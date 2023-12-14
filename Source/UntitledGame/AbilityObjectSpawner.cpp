@@ -18,7 +18,7 @@ void AAbilityObjectSpawner::BeginPlay()
 	Super::BeginPlay();
 	FindInteractionManager();
 	SpawnObjects();
-	//Destroy();
+	Destroy();
 }
 
 // Called every frame
