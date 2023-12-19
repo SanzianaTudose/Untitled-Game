@@ -17,6 +17,22 @@ public:
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+#pragma region SettersGetters
+	
+	void SetMaxHealth(float NewMaxHealth)
+	{
+		MaxHealth = NewMaxHealth;
+	}
+
+	// Used to also initialize current health value {Health}
+	void SetMaxHealth(float NewMaxHealth, bool IsInitialArmorCore)
+	{
+		MaxHealth = NewMaxHealth;
+		if (IsInitialArmorCore)
+			Health = MaxHealth;
+	}
+
+#pragma endregion SettersGetters
 
 protected:
 	virtual void BeginPlay() override;

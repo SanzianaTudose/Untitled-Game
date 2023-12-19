@@ -10,6 +10,7 @@
 #include "ArmorCore.h"
 #include "ShootingController.h"
 #include "PlayerCursorManager.h"
+#include "HealthComponent.h"
 
 DEFINE_LOG_CATEGORY(Player);
 
@@ -57,6 +58,10 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	HealthComponent = Cast<UHealthComponent>(GetComponentByClass(UHealthComponent::StaticClass()));
+	if (!HealthComponent)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: HealthComponent component not found!"));
+
 	CharacterMovement = GetCharacterMovement();
 	if (!CharacterMovement)
 		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: CharacterMovement component not found!"));
@@ -92,7 +97,8 @@ void APlayerCharacter::PrintCoreStats()
 
 void APlayerCharacter::ApplyArmorStats()
 {
-	// TODO: Apply Health changes
+	// Apply Health changes
+	HealthComponent->SetMaxHealth(ArmorCore->Stats[ArmorStat::Health], true);
 
 	// Apply MovementSpeed changes
 	if (CharacterMovement && ArmorCore)
