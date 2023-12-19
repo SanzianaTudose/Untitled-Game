@@ -30,10 +30,14 @@ public:
 	UPROPERTY(Category = General, EditAnywhere, BlueprintReadWrite)
 	class UPlayerCursorManager* CursorManager;
 
+	UPROPERTY(Category = ArmorSystem, EditAnywhere, BlueprintReadWrite)
+	class UArmorCore* ArmorCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UWeaponCore* WeaponCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UShootingController* ShootingController;
+	
+	UCharacterMovementComponent* CharacterMovement;
 
 	void OnFire();
 	UFUNCTION(BlueprintCallable)
@@ -51,4 +55,10 @@ private:
 	/** Camera boom positioning the camera above the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
+	class UHealthComponent* HealthComponent;
+
+	// Change Player properties based on {ArmorCore} stats
+	// Should be called every time ArmorCore changes
+	void ApplyArmorStats();
 };

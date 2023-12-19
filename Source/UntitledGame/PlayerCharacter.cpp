@@ -7,8 +7,10 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "WeaponCore.h"
+#include "ArmorCore.h"
 #include "ShootingController.h"
 #include "PlayerCursorManager.h"
+#include "HealthComponent.h"
 
 DEFINE_LOG_CATEGORY(Player);
 
@@ -55,7 +57,23 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	HealthComponent = Cast<UHealthComponent>(GetComponentByClass(UHealthComponent::StaticClass()));
+	if (!HealthComponent)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: HealthComponent component not found!"));
+
+	CharacterMovement = GetCharacterMovement();
+	if (!CharacterMovement)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: CharacterMovement component not found!"));
+
+	ArmorCore = Cast<UArmorCore>(GetComponentByClass(UArmorCore::StaticClass()));
+	if (!ArmorCore)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: ArmorCore component not found!"));
+	ApplyArmorStats();
+
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	if (!WeaponCore)
+		UE_LOG(LogTemp, Error, TEXT("PlayerCharacter: WeaponCore component not found!"));
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();
 }
@@ -75,6 +93,16 @@ void APlayerCharacter::PrintCoreStats()
 	UE_LOG(Player, Warning, TEXT("MaxAbilities: %f\n"), WeaponCore->Stats[WeaponStat::MaxAbilities]);
 	UE_LOG(Player, Warning, TEXT("FireRate: %f\n"), WeaponCore->Stats[WeaponStat::FireRate]);
 	UE_LOG(Player, Warning, TEXT("ReloadTime: %f\n"), WeaponCore->Stats[WeaponStat::ReloadTime]);
+}
+
+void APlayerCharacter::ApplyArmorStats()
+{
+	// Apply Health changes
+	HealthComponent->SetMaxHealth(ArmorCore->Stats[ArmorStat::Health], true);
+
+	// Apply MovementSpeed changes
+	if (CharacterMovement && ArmorCore)
+		CharacterMovement->MaxWalkSpeed = ArmorCore->Stats[ArmorStat::MovementSpeed];
 }
 
 
