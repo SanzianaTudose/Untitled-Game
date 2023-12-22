@@ -26,6 +26,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString Name;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UTexture2D* ItemIcon;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TMap<WeaponStat, float> Modifiers;
 };

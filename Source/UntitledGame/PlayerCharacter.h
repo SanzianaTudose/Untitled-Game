@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "WeaponCore.h"
+#include "Inventory.h"
 #include "PlayerCharacter.generated.h"
 DECLARE_LOG_CATEGORY_EXTERN(Player, Log, All);
 
@@ -34,6 +35,8 @@ public:
 	class UWeaponCore* WeaponCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UShootingController* ShootingController;
+	UPROPERTY(Category = InventorySystem, EditAnywhere, BlueprintReadWrite)
+	class UInventory* Inventory;
 
 	void OnFire();
 	UFUNCTION(BlueprintCallable)

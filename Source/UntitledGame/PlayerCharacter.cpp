@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "WeaponCore.h"
 #include "ShootingController.h"
+#include "Inventory.h"
 #include "PlayerCursorManager.h"
 
 DEFINE_LOG_CATEGORY(Player);
@@ -58,6 +59,11 @@ void APlayerCharacter::BeginPlay()
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();
+
+	Inventory = Cast<UInventory>(GetComponentByClass(UInventory::StaticClass()));
+	UComponent* Item = NewObject<UComponent>();
+	Inventory->AddItem(0, Item);
+	Inventory->DisplayInventory();
 }
 
 void APlayerCharacter::HandleDeath()
