@@ -26,6 +26,7 @@ void USmiteAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick Tic
     Owner->GetWorld()->OverlapMultiByObjectType(OutOverlaps, Owner->GetActorLocation(), Owner->GetActorQuat(), LootObjectQueryParams, CollisionShape);
     for(FOverlapResult res : OutOverlaps)
     {
+        if(res.GetActor() == nullptr){continue;}
         if(res.GetActor() == PlayerPawn)
         {
             continue;

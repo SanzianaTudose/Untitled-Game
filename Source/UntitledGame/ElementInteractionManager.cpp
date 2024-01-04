@@ -30,7 +30,7 @@ void AElementInteractionManager::AbilityEnemyInteract(EElement ability, EStatus 
 	if((ability == EElement::Fire && enemy == EStatus::SlimeCovered)
 	|| (ability == EElement::Slime && enemy == EStatus::OnFire))
 	{
-		GetWorld()->SpawnActor<AActor>(SlimeExplosion, location, GetActorRotation());
+		GetWorld()->SpawnActor<AActor>(SlimeExplosion, location, FRotator(0.f, 0.f, 0.f));
 		//AActor* actor = other->GetWorld()->SpawnActor<AActor>(SlimeExplosion, location, other->GetActorRotation());
 		
 	}
