@@ -8,19 +8,22 @@
 //#include "AbilityObjectComponent.h"
 #include "ElementInteractionManager.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EElement : uint8 {
 	None = 0,
 	Fire = 1,
-	Slime = 2
+	Slime = 2,
+	Lightning = 3
 };
 
-UENUM()
+UENUM(BlueprintType)
 enum class EStatus : uint8 
 {
 	None = 0,
 	OnFire = 1,
-	SlimeCovered = 2
+	SlimeCovered = 2,
+	Electrified = 3
+
 };
 
 UCLASS()

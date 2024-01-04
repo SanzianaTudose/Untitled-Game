@@ -38,7 +38,16 @@ public:
 	float Range;
 	FVector InitialPosition;
 
-	void SetData(/*Element, Effect[]*/ float d, bool doh, float r, AElementInteractionManager* e);
+	void SetData(/*Element, Effect[]*/ float d, bool doh, float r, AElementInteractionManager* e)
+	{
+		//set all the needed variables
+		//element
+		//effect[]
+		Damage = d;
+		bDestroyOnHit = doh;
+		Range = r;
+		EIM = e;
+	}
 
 	UFUNCTION()
 	void OnEnemyHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

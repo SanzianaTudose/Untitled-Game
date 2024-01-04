@@ -40,6 +40,7 @@ void AEnemyCharacter::HandleDeath()
 
 void AEnemyCharacter::UpdateStatus(EElement otherElement)
 {
+	//TODO decide if we need different enums for status and element since they are essentially the same
 	switch(otherElement)
 	{
 		case EElement::Fire:
@@ -48,8 +49,11 @@ void AEnemyCharacter::UpdateStatus(EElement otherElement)
 		case EElement::Slime:
 			Status = EStatus::SlimeCovered;
 			break;
+		case EElement::Lightning:
+			Status = EStatus::Electrified;
+			break;
 		default:
-			Status = EStatus::None;
+			//Status = EStatus::None;
 			break;
 	}
 

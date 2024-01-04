@@ -53,6 +53,7 @@ void AAbilityObjectSpawner::SpawnObjects()
 			if(obj)
 			{
 				//give it the needed stats
+        		UE_LOG(LogTemp, Warning, TEXT("Sending data %f"), Damage);
 				obj->SetData(Damage, bDestroyOnHit, Range, EIM);
 			}
 		}

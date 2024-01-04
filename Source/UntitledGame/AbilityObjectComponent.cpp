@@ -83,14 +83,3 @@ void UAbilityObjectComponent::OnEnemyHit(UPrimitiveComponent* OverlappedComp, AA
 		enemy->UpdateStatus(Element);
 	}
 }
-
-void UAbilityObjectComponent::SetData(float d, bool doh, float r, AElementInteractionManager* e)
-{
-	//set all the needed variables
-	//element
-	//effect[]
-	Damage = d;
-	bDestroyOnHit = doh;
-	Range = r;
-	EIM = e;
-}
