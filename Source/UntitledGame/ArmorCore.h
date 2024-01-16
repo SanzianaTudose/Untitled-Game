@@ -5,9 +5,9 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "ArmorCoreDA.h"
+#include "Component.h"
 
 #include "ArmorCore.generated.h"
-
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class UNTITLEDGAME_API UArmorCore : public UActorComponent
@@ -28,6 +28,18 @@ public:
 	UPROPERTY(Category = ArmorSystem, EditAnywhere, BlueprintReadWrite)
 	UArmorCoreDA* BaseArmorCore;
 
+#pragma region Components
+	UFUNCTION(BlueprintCallable)
+	void AddComponent(UComponent* Component);
+	void RemoveComponent(UComponent* Component);
+
+	// Updates current WeaponCore stats. {isAdded} - indicates if the Component modifiers should be added or removed
+	void ApplyComponentModifiers(UComponent* Component, bool isAdded);
+#pragma endregion Components
+
+private:
+	UPROPERTY(Category = WeaponSystem, VisibleAnywhere)
+	TSet<UComponent*> Components;
 
 protected:
 	// Called when the game starts

@@ -4,12 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "ArmorCoreDA.h"
+
 #include "Component.generated.h"
 
 UENUM(BlueprintType)
 enum class WeaponStat : uint8
 {
-	MaxAbilities, // TODO: Components should not be able to modify MaxAbilities!
+	MaxAbilities,
 	FireRate,
 	ReloadTime
 };
@@ -27,5 +29,8 @@ public:
 	FString Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TMap<WeaponStat, float> Modifiers;
+	TMap<WeaponStat, float> WeaponModifiers;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TMap<ArmorStat, float> ArmorModifiers;
 };
