@@ -21,6 +21,11 @@ void USmiteAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick Tic
 
     LootObjectQueryParams.AddObjectTypesToQuery(ECollisionChannel::ECC_Pawn);
     CollisionShape.SetSphere(400.0f);
+    UE_LOG(LogTemp, Warning, TEXT("Collision %i"), CollisionShape.IsBox());
+    UE_LOG(LogTemp, Warning, TEXT("Collision %i"), CollisionShape.IsCapsule());
+    UE_LOG(LogTemp, Warning, TEXT("Collision %i"), CollisionShape.IsLine());
+    UE_LOG(LogTemp, Warning, TEXT("Collision %i"), CollisionShape.IsSphere());
+
     AActor* Owner = GetOwner();
     APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(Owner->GetWorld(), 0);
     Owner->GetWorld()->OverlapMultiByObjectType(OutOverlaps, Owner->GetActorLocation(), Owner->GetActorQuat(), LootObjectQueryParams, CollisionShape);
@@ -33,7 +38,6 @@ void USmiteAbilityObjectComponent::TickComponent(float DeltaTime, ELevelTick Tic
         }
         OnSmiteHit(res.GetActor(), res.GetActor()->GetActorLocation());
     }
-    UE_LOG(LogTemp, Warning, TEXT("Collision %d"), OutOverlaps.Num());
     SetComponentTickEnabled(false);
 }
 
