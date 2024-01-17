@@ -2,6 +2,7 @@
 
 
 #include "ArmorCore.h"
+#include "PlayerCharacter.h"
 
 UArmorCore::UArmorCore()
 {
@@ -11,6 +12,8 @@ UArmorCore::UArmorCore()
 void UArmorCore::BeginPlay()
 {
 	Super::BeginPlay();
+
+	
 
 	InitializeCoreStats();
 }
@@ -63,6 +66,10 @@ void UArmorCore::ApplyComponentModifiers(UComponent* Component, bool isAdded)
 	float Sign = (isAdded ? 1 : -1);
 	for (TPair<ArmorStat, float> Modifier : Component->ArmorModifiers)
 		Stats.Emplace(Modifier.Key, Stats[Modifier.Key] + Sign * Modifier.Value);
+
+	APlayerCharacter* PlayerOwner = Cast<APlayerCharacter>(GetOwner());
+	if (PlayerOwner)
+		PlayerOwner->ApplyArmorStats();
 }
 
 #pragma region Components
