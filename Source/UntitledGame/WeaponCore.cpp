@@ -122,7 +122,7 @@ void UWeaponCore::RemoveComponent(UComponent* Component)
 void UWeaponCore::ApplyComponentModifiers(UComponent* Component, bool isAdded)
 {
 	float Sign = (isAdded ? 1 : -1);
-	for (TPair<WeaponStat, float> Modifier : Component->Modifiers)
+	for (TPair<WeaponStat, float> Modifier : Component->WeaponModifiers)
 		Stats.Emplace(Modifier.Key, Stats[Modifier.Key] + Sign * Modifier.Value);
 }
 

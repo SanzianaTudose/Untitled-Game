@@ -36,13 +36,17 @@ public:
 	class UWeaponCore* WeaponCore;
 	UPROPERTY(Category = WeaponSystem, EditAnywhere, BlueprintReadWrite)
 	class UShootingController* ShootingController;
-	
+
 	UCharacterMovementComponent* CharacterMovement;
 
 	void OnFire();
 	UFUNCTION(BlueprintCallable)
 	void PrintCoreStats();
 	void HandleDeath();
+
+	// Change Player properties based on {ArmorCore} stats
+	// Should be called every time ArmorCore changes
+	void ApplyArmorStats();
 
 protected:
 	virtual void BeginPlay() override;
@@ -57,8 +61,4 @@ private:
 	class USpringArmComponent* CameraBoom;
 
 	class UHealthComponent* HealthComponent;
-
-	// Change Player properties based on {ArmorCore} stats
-	// Should be called every time ArmorCore changes
-	void ApplyArmorStats();
 };

@@ -10,7 +10,6 @@
 
 #include "WeaponCore.generated.h"
 
-
 UCLASS(ClassGroup = (WeaponSystem), meta = (BlueprintSpawnableComponent))
 class UNTITLEDGAME_API UWeaponCore : public UActorComponent
 {
