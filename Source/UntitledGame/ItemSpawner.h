@@ -9,12 +9,14 @@
 #include "WeaponCore.h"
 #include "ItemSpawner.generated.h"
 
+
 UENUM(BlueprintType)
 enum class ItemType : uint8
 {
-    WeaponCore UMETA(DisplayName = "WeaponCore"),
-    Ability UMETA(DisplayName = "Ability"),
-    Component UMETA(DisplayName = "Component")
+    WeaponCore,
+    ArmorCore,
+    Component,
+    Ability,
 };
 
 UCLASS()

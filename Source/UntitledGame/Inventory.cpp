@@ -7,10 +7,10 @@
 
 UInventory::UInventory()
 {
-	PrimaryComponentTick.bCanEverTick = true;
+    PrimaryComponentTick.bCanEverTick = true;
 }
 
-void UInventory::AddItem(int Slot, UComponent* Item)
+void UInventory::AddItem(UDataAsset* Item)
 {
     if (Items.Num() < MaxItems)
     {
@@ -28,7 +28,7 @@ void UInventory::RemoveItem(int Slot)
     }
 }
 
-UComponent* UInventory::QueryItem(int Slot)
+UDataAsset* UInventory::QueryItem(int Slot)
 {
     if (Items.Num() > 0)
     {
@@ -47,22 +47,30 @@ void UInventory::DisplayInventory()
             InventoryUI->AddToViewport();
 
             // Find the HorizontalBox in your InventoryWidget
-            UHorizontalBox* HorizontalBox = Cast<UHorizontalBox>(InventoryUI->WidgetTree->FindWidget("YourHorizontalBoxName"));
+            UHorizontalBox* HorizontalBox = Cast<UHorizontalBox>(InventoryUI->WidgetTree->FindWidget("InventoryBox"));
             
             if (HorizontalBox)
             {
+                UE_LOG(LogTemp, Warning, TEXT("HorizontalBox found!"));
+                
                 // Clear the existing widgets in the HorizontalBox
                 HorizontalBox->ClearChildren();
 
                 // Repopulate the HorizontalBox with current items
-                for (UComponent* Item : Items)
+                for (UDataAsset* Item : Items)
                 {
                     UUserWidget* ItemWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), ItemWidget);
                     if (ItemWidgetInstance)
                     {
-                        // Set the item image or other properties
-                        // ...
-
+                        UComponent* AsComponent = Cast<UComponent>(Item);
+                        // if (AsComponent)
+                        // {
+                        //     UImage* ItemImage = Cast<UImage>(ItemWidgetInstance->WidgetTree->FindWidget("ItemImage"));
+                        //     if (ItemImage)
+                        //     {
+                        //         // ItemImage->SetBrushFromTexture(IconMap[AsComponent->Type]);
+                        //     }
+                        // }
                         HorizontalBox->AddChildToHorizontalBox(ItemWidgetInstance);
                     }
                 }

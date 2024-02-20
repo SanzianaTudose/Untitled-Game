@@ -14,6 +14,15 @@ enum class WeaponStat : uint8
 	ReloadTime
 };
 
+UENUM(BlueprintType)
+enum class ComponentType : uint8
+{
+	Stock,
+	Barrel,
+	Sight,
+	Trigger,
+};
+
 /**
  *  Holds information about a generic component and the stats it modifies.
  */
@@ -26,8 +35,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString Name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    UTexture2D* ItemIcon;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	ComponentType Type;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TMap<WeaponStat, float> Modifiers;

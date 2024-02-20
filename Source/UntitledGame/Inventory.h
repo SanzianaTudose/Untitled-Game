@@ -8,6 +8,17 @@
 #include "Blueprint/UserWidget.h"
 #include "Inventory.generated.h"
 
+UENUM(BlueprintType)
+enum class ItemType : uint8
+{
+    WeaponCore,
+    ArmorCore,
+    Ability,
+	Stock,
+	Barrel,
+	Sight,
+	Trigger,
+};
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UNTITLEDGAME_API UInventory : public UActorComponent
@@ -20,7 +31,7 @@ public:
 
 public:
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
-	TArray<UComponent*> Items;
+	TArray<UDataAsset*> Items;
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
 	int MaxItems;
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
@@ -29,14 +40,16 @@ public:
     TSubclassOf<UUserWidget> InventoryWidget;
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
     TSubclassOf<UUserWidget> ItemWidget;
+	UPROPERTY(Category = "IconMapping", EditAnywhere, BlueprintReadOnly)
+    TMap<ItemType, UTexture2D*> IconMap;
 
 	UFUNCTION(BlueprintCallable)
-	void AddItem(int Slot, UComponent* Item);
+	void AddItem( UDataAsset* Item);
 	UFUNCTION(BlueprintCallable)
 	void RemoveItem(int Slot);
 	UFUNCTION(BlueprintCallable)
 	void DisplayInventory();
 	UFUNCTION(BlueprintCallable)
-	UComponent* QueryItem(int Slot);
+	UDataAsset* QueryItem(int Slot);
 
 };

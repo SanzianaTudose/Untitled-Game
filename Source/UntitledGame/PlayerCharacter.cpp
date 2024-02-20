@@ -61,8 +61,6 @@ void APlayerCharacter::BeginPlay()
 	PrintCoreStats();
 
 	Inventory = Cast<UInventory>(GetComponentByClass(UInventory::StaticClass()));
-	UComponent* Item = NewObject<UComponent>();
-	Inventory->AddItem(0, Item);
 	Inventory->DisplayInventory();
 }
 
