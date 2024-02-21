@@ -23,20 +23,14 @@ enum class ComponentType : uint8
 	Trigger,
 };
 
-/**
- *  Holds information about a generic component and the stats it modifies.
- */
 UCLASS(BlueprintType)
-class UNTITLEDGAME_API UComponent : public UDataAsset
+class UNTITLEDGAME_API UComponent : public UAbstractItem
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString Name;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	ComponentType Type;
+	ComponentType ComponentType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TMap<WeaponStat, float> Modifiers;

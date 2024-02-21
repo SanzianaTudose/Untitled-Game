@@ -6,19 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "Component.h"
 #include "Blueprint/UserWidget.h"
+#include "AbstractItem.h"	
 #include "Inventory.generated.h"
-
-UENUM(BlueprintType)
-enum class ItemType : uint8
-{
-    WeaponCore,
-    ArmorCore,
-    Ability,
-	Stock,
-	Barrel,
-	Sight,
-	Trigger,
-};
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UNTITLEDGAME_API UInventory : public UActorComponent
@@ -28,8 +17,6 @@ class UNTITLEDGAME_API UInventory : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UInventory();
-
-public:
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
 	TArray<UDataAsset*> Items;
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
@@ -41,7 +28,7 @@ public:
 	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
     TSubclassOf<UUserWidget> ItemWidget;
 	UPROPERTY(Category = "IconMapping", EditAnywhere, BlueprintReadOnly)
-    TMap<ItemType, UTexture2D*> IconMap;
+    TMap<TypeOfItem, UTexture2D*> IconMap;
 
 	UFUNCTION(BlueprintCallable)
 	void AddItem( UDataAsset* Item);
