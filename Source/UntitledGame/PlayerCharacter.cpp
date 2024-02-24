@@ -47,16 +47,14 @@ APlayerCharacter::APlayerCharacter()
 	PrimaryActorTick.bCanEverTick = false;
 
 	CursorManager = CreateDefaultSubobject<UPlayerCursorManager>(TEXT("CursorManager"));
-
-	ShootingController = CreateDefaultSubobject<UShootingController>(TEXT("ShootingController"));
-	ShootingController->OwningActor = this;
-	ShootingController->SetCursorManager(CursorManager);
 }
 
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	WeaponCore = Cast<UWeaponCore>(GetComponentByClass(UWeaponCore::StaticClass()));
+	WeaponCore->OwningActor = this;
+	WeaponCore->SetCursorManager(CursorManager);
 	WeaponCore->GenerateStats(1);
 	PrintCoreStats();
 
@@ -71,7 +69,7 @@ void APlayerCharacter::HandleDeath()
 
 void APlayerCharacter::OnFire()
 {
-	ShootingController->OnFire();
+	WeaponCore->OnFire();
 }
 
 void APlayerCharacter::PrintCoreStats()

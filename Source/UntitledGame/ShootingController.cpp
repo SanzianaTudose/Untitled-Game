@@ -42,7 +42,7 @@ void UShootingController::OnFire()
 			// spawn the projectile
 			if (WeaponCore != nullptr)
 			{
-				WeaponCore->ActivateAbitlity(ProjectileSpawnLocation, FireRotation, OwningActor);
+				WeaponCore->ActivateAbility(ProjectileSpawnLocation, FireRotation);
 			}
 		}
 

@@ -10,7 +10,7 @@ UInventory::UInventory()
     PrimaryComponentTick.bCanEverTick = true;
 }
 
-void UInventory::AddItem(UDataAsset* Item)
+void UInventory::AddItem(UAbstractItem* Item)
 {
     if (Items.Num() < MaxItems)
     {
@@ -28,7 +28,7 @@ void UInventory::RemoveItem(int Slot)
     }
 }
 
-UDataAsset* UInventory::QueryItem(int Slot)
+UAbstractItem* UInventory::QueryItem(int Slot)
 {
     if (Items.Num() > 0)
     {
@@ -57,20 +57,16 @@ void UInventory::DisplayInventory()
                 HorizontalBox->ClearChildren();
 
                 // Repopulate the HorizontalBox with current items
-                for (UDataAsset* Item : Items)
+                for (UAbstractItem* Item : Items)
                 {
                     UUserWidget* ItemWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), ItemWidget);
                     if (ItemWidgetInstance)
                     {
-                        UComponent* AsComponent = Cast<UComponent>(Item);
-                        // if (AsComponent)
-                        // {
-                        //     UImage* ItemImage = Cast<UImage>(ItemWidgetInstance->WidgetTree->FindWidget("ItemImage"));
-                        //     if (ItemImage)
-                        //     {
-                        //         // ItemImage->SetBrushFromTexture(IconMap[AsComponent->Type]);
-                        //     }
-                        // }
+                        UImage* ItemImage = Cast<UImage>(ItemWidgetInstance->GetWidgetFromName("ItemImage"));
+                        if (ItemImage)
+                        {
+                            ItemImage->SetBrushFromTexture(IconMap[Item->ItemType]);
+                        }
                         HorizontalBox->AddChildToHorizontalBox(ItemWidgetInstance);
                     }
                 }

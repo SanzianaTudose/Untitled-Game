@@ -17,26 +17,26 @@ class UNTITLEDGAME_API UInventory : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UInventory();
-	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
-	TArray<UDataAsset*> Items;
-	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+	TArray<UAbstractItem*> Items;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int MaxItems;
-	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int CurrentItems;
-	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
     TSubclassOf<UUserWidget> InventoryWidget;
-	UPROPERTY(Category = "Inventory", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
     TSubclassOf<UUserWidget> ItemWidget;
-	UPROPERTY(Category = "IconMapping", EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "IconMapping")
     TMap<TypeOfItem, UTexture2D*> IconMap;
 
 	UFUNCTION(BlueprintCallable)
-	void AddItem( UDataAsset* Item);
+	void AddItem( UAbstractItem* Item);
 	UFUNCTION(BlueprintCallable)
 	void RemoveItem(int Slot);
 	UFUNCTION(BlueprintCallable)
 	void DisplayInventory();
 	UFUNCTION(BlueprintCallable)
-	UDataAsset* QueryItem(int Slot);
+	UAbstractItem* QueryItem(int Slot);
 
 };

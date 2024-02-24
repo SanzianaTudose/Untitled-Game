@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "AbstractItem.h"
 #include "Component.generated.h"
 
 UENUM(BlueprintType)
@@ -27,10 +28,10 @@ UCLASS(BlueprintType)
 class UNTITLEDGAME_API UComponent : public UAbstractItem
 {
 	GENERATED_BODY()
-
+	UComponent();
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	ComponentType ComponentType;
+	ComponentType componentType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TMap<WeaponStat, float> Modifiers;
